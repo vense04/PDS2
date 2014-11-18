@@ -34,16 +34,18 @@ if (isset ( $_GET ['log'] )) {
 if (! isSet ( $_SESSION ['Usuario'] )) {
 	// Está logando
 	if (isSet ( $_POST ['usuario'] )) {
-		include "../dao/usuarioDao.class.php";
-		$UsuarioDao = new UsuarioDao ();
+		include_once "dao/usuarioDao.class.php";
+		$UsuarioDao = new UsuarioDao();
+		
 		$login = $UsuarioDao->getLogin($_POST ['usuario']);
+		
 		$registro = $login->fetch ( PDO::FETCH_ASSOC );
 		if ($registro ["username"] == $_POST ['usuario']) {
 			if ($registro ["senha"] != md5_base64 ( $_POST ['senha'] ) . $hash) {
 				header ( "location:localhost:8888/index.php?erro=senhaErrada" );
 			} else {
 				// Cria a sessão
-				$_SESSION ['Usuario'] = $registro ["codUsuario"] . '+' . $registro ["nome"] . '+' . $registro ["tipoUsuario"];
+				$_SESSION ['Usuario'] = $registro ["codUsuario"] . '+' . $registro ["nome"] . '+' . $registro ["tipoUsuario"] . '+' . $registro ["avatar"];
 				$codUsuario = $registro ["codUsuario"];
 				$tipoUsuario = $registro ["tipoUsuario"];
 				$nome = $registro ["nome"];
