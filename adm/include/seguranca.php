@@ -27,7 +27,7 @@ function confereSenha($senha, $confirmaSenha) {
 if (isset ( $_GET ['log'] )) {
 	if ($_GET ['log'] == 'out') {
 		unset ( $_SESSION ['Usuario'] );
-		header ( "location:index.html" );
+		header ( "location:index.php" );
 	}
 }
 // Não Está logado ?
@@ -36,13 +36,11 @@ if (! isSet ( $_SESSION ['Usuario'] )) {
 	if (isSet ( $_POST ['usuario'] )) {
 		include_once "dao/usuarioDao.class.php";
 		$UsuarioDao = new UsuarioDao();
-		
 		$login = $UsuarioDao->getLogin($_POST ['usuario']);
-		
 		$registro = $login->fetch ( PDO::FETCH_ASSOC );
 		if ($registro ["username"] == $_POST ['usuario']) {
 			if ($registro ["senha"] != md5_base64 ( $_POST ['senha'] ) . $hash) {
-				header ( "location:localhost:8888/index.php?erro=senhaErrada" );
+				header ( "location:index.php?erro=senhaErrada" );
 			} else {
 				// Cria a sessão
 				$_SESSION ['Usuario'] = $registro ["codUsuario"] . '+' . $registro ["nome"] . '+' . $registro ["tipoUsuario"] . '+' . $registro ["avatar"];
@@ -52,11 +50,11 @@ if (! isSet ( $_SESSION ['Usuario'] )) {
 			}
 		} else {
 			//Usuário inexistente
-			header ( "location:localhost:8888/index.php?erro=usuarioInexistente" );
+			header ( "location:index.php?erro=usuarioInexistente" . $login->rowCount());
 		}
 	} else {
 		//Não está logado
-		header ( "location:localhost:8888/index.html?erro=true" );
+		header ( "location:index.php?erro=true" );
 	}
 } // Está logado
 else {

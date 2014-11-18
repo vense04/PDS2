@@ -37,7 +37,7 @@
                     
                     <p><a href="#">Esqueci a senha</a></p>
                     
-                    <a href="register.html" class="text-center">Registre-se</a>
+                    <a href="registro.html" class="text-center">Registre-se</a>
                 </div>
             </form>
 

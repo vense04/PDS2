@@ -10,7 +10,12 @@ class UsuarioDao {
 		$this->bancoDeDados = new Conexao ();
 	}
 	
-	// Busca dados para o login
+	/**
+	 * Busca dados para validar o login
+	 * ativo = 1 (somente os Válidos)
+	 * @param $usuario
+	 * @return PDOStatement (Resultado da consulta)
+	 */
 	public function getLogin($usuario) {
 		try {
 			
@@ -18,16 +23,16 @@ class UsuarioDao {
 														U.codUsuario
 														,	U.username
 														,	U.senha
-														,	U.ativo
 														,	U.nome
-														,	P.tipoUsuario
-														,	P.avatar
-													FROM tab_usuario U
+														,	U.tipoUsuario
+														,	U.avatar
+													FROM Usuario U
 													WHERE
-														U.username = ?");
+														U.username = ?
+													AND
+														U.ativo = 1");
 			$stmt->bindValue(1, $usuario);
 			$stmt->execute();
-			
 			$this->bancoDeDados = null;
 			return $stmt;
 		} catch ( PDOException $ex ) {
