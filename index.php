@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Starter Template for Bootstrap 3.3.1</title>
+    <title>Projeto PDS2</title>
     <link rel="shortcut icon" href="">
     
     
@@ -17,6 +17,8 @@
 	
 	
 	<!-- JS -->
+	
+	
 	
     <!--[if IE]>
         <script src="https://cdn.jsdelivr.net/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -34,7 +36,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">Project name</a>
+                <a class="navbar-brand" href="#">PDS2</a>
             </div>
 
             <div class="collapse navbar-collapse">
@@ -49,7 +51,7 @@
 
     <div class="container">
         <div class="starter-template">
-            <h1>Hello, world!</h1>
+            <h1>PDS2</h1>
                 <p class="lead">Now you can start your own project with <a target="_blank" href="http://getbootstrap.com/">Bootstrap 3.3.1</a>. This plugin is a fork from <a href="https://github.com/le717/brackets-html-skeleton#readme">HTML Skeleton</a>.</p>
         </div>
     </div>
