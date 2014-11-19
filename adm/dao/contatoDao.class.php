@@ -1,9 +1,9 @@
 <?php
-class UsuarioDao {
+class ContatoDao {
 	// irá receber uma conexão
 	public $bancoDeDados = null;
 	// construtor
-	public function UsuarioDao() {
+	public function ContatoDao() {
 		// retorna a conexão com o banco de dados Utilizando o PDO
 		include_once 'conexao.class.php';
 		
@@ -11,27 +11,20 @@ class UsuarioDao {
 	}
 	
 	/**
-	 * Busca dados para validar o login
-	 * ativo = 1 (somente os Válidos)
-	 * @param $usuario
+	 * Verifica E-mail
+	 * @param $email
 	 * @return PDOStatement (Resultado da consulta)
 	 */
-	public function getLogin($usuario) {
+	public function verificaEmail($email) {
 		try {
 			
 			$stmt = $this->bancoDeDados->prepare( "SELECT
-														U.codUsuario
-														,	U.username
-														,	U.senha
-														,	U.nome
-														,	U.tipoUsuario
-														,	U.avatar
-													FROM Usuario U
+														C.codContato
+													FROM Contato C
 													WHERE
-														U.username = ?
-													AND
-														U.ativo = 1");
-			$stmt->bindValue(1, $usuario);
+														C.desContato = ?");
+			
+			$stmt->bindValue(1, $email);
 			$stmt->execute();
 			$this->bancoDeDados = null;
 			return $stmt;
