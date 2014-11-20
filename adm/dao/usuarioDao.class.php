@@ -1,4 +1,5 @@
 <?php
+// Le classe UsuarioDao
 class UsuarioDao {
 	// irá receber uma conexão
 	public $bancoDeDados = null;
@@ -13,7 +14,7 @@ class UsuarioDao {
 	/**
 	 * Busca dados para validar o login
 	 * ativo = 1 (somente os Válidos)
-	 * @param $usuario
+	 * @param String $usuario
 	 * @return PDOStatement (Resultado da consulta)
 	 */
 	public function getLogin($usuario) {

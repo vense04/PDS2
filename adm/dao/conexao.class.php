@@ -1,4 +1,5 @@
 <?php
+// Le classe conexaoDao
 //ela herdará os métodos e atributos do PDO através da palavra-chave extends
 class Conexao extends PDO {
 	//criando a conexão com o banco de dados no localhost(127.0.0.1) e falando o nome do banco, no nosso caso "oo"

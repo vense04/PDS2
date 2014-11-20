@@ -1,4 +1,5 @@
 <?php
+// Le classe contatoDao
 class ContatoDao {
 	// irá receber uma conexão
 	public $bancoDeDados = null;
@@ -12,10 +13,10 @@ class ContatoDao {
 	
 	/**
 	 * Verifica E-mail
-	 * @param $email
+	 * @param String $email
 	 * @return PDOStatement (Resultado da consulta)
 	 */
-	public function verificaEmail($email) {
+public function verificaEmail($email) {
 		try {
 			
 			$stmt = $this->bancoDeDados->prepare( "SELECT
@@ -32,5 +33,36 @@ class ContatoDao {
 			echo "Erro: " . $ex->getMessage ();
 		}
 	}
+	
+	/**
+	 * Insere contato
+	 * @param String $contato
+	 * @param Integer $tipoContato
+	 * @param Integer $codUsuario
+	 * @return PDOStatement
+	 */
+	public function insereContato($contato, $tipoContato, $codUsuario) {
+		try {
+				
+			$stmt = $this->bancoDeDados->prepare( "INSERT INTO Contato ( 
+														codTipoContato
+														,	codUsuario
+														,	desContato) 
+													VALUES ( 
+														?
+														,	?
+														,	?)");
+				
+			$stmt->bindValue(1, $tipoContato);
+			$stmt->bindValue(2, $codUsuario);
+			$stmt->bindValue(3, $contato);
+			$stmt->execute();
+			$this->bancoDeDados = null;
+			return $stmt;
+		} catch ( PDOException $ex ) {
+			echo "Erro: " . $ex->getMessage ();
+		}
+	}
+	
 }
 ?>
