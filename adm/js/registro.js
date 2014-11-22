@@ -78,7 +78,16 @@ $(function() {
 		}
 	});
 	
+	//Filtra apenas imagens dos tipos desejados
 	$("#avatar").change(function() {
-		alert($(this).val());
+		if ($(this).val().indexOf(".jpg") > 0 ||
+			$(this).val().indexOf(".jpeg") > 0 ||
+			$(this).val().indexOf(".png") > 0) {
+			$("#spanAvatar").html("");
+		}
+		else {
+			$(this).val("");
+			$("#spanAvatar").html("<h5>Só são permitidos imagens do tipo jpg, jpeg, png.</h5>");
+		}
 	})
 });
