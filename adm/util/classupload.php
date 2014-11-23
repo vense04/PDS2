@@ -1,5 +1,4 @@
 <?php 
-	include_once = "../include/seguranca.php"
 	class UploadImagem{ 
 		public $width; // Definida no arquivo index.php, será a largura máxima da nossa imagem 
 		public $height; // Definida no arquivo index.php, será a altura máxima da nossa imagem 
@@ -70,15 +69,17 @@
 			// Retiramos acentos, espaços e hífens do nome da imagem 
 // 			$file['name'] = $this->tirarAcento(($file['name']));
  
-			// Guardamos na variável tipo o formato do arquivo enviado
-			$tipo = strtolower(end(explode('/', $file['type'])));
-			
-			//Gera um nome de arquivo único, apartir de um md5 do nome do arquivo + ano + mes + dia + hora + minuto + segundo + milissegundos + hash
-			$file['name'] = md5_base64($file['name'] , date("YmdHisu")) . $hash . $tipo;
+			$value = explode(".", $file['name']);
+			$extension = strtolower(array_pop($value));   //Line 32
+			// the file name is before the last "."
+			$file['name'] = date("YmdHisu") . "." . $extension;  //Line 34
 			
 			
 			// Atribuímos caminho e nome da imagem a uma variável apenas 
-			$uploadfile = $caminho.$file['name']; 
+			$uploadfile = $caminho.$file['name'];
+
+			// Guardamos na variável tipo o formato do arquivo enviado
+			$tipo = strtolower($extension);
 			
 			// Verifica se a imagem enviada é do tipo jpeg, png
 			if (array_search($tipo, $this->tipos) === false) { 

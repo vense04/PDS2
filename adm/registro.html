@@ -17,10 +17,9 @@
         <![endif]-->
     </head>
     <body class="skin-blue pace-done">
-
         <div class="form-box" id="login-box">
             <div class="header bg-light-blue">Registre-se</div>
-            <form action="inicio.php" method="post">
+            <form action="ajax/avatarUpload.php" method="post" enctype="multipart/form-data">
                 <div class="body bg-gray">
                 	<div class="form-group">
                         <input type="text" name="nome" class="form-control" placeholder="Nome completo"/>
@@ -33,9 +32,10 @@
                         <span id="spanUserName" class="text-red"></span>
                     </div>
 				<div class="form-group">
-					<label for="exampleInputFile">Foto perfil: </label> <input type="file" formtarget="jpg"
-						id="avatar">
-					<span id="spanAvatar" class="text-red"></span>
+					<label for="exampleInputFile">Foto perfil: </label> <input type="file" name="avatar" id="avatar" max="1">
+					<span id="avatarPreview"></span>
+						<input type="hidden" name="MAX_FILE_SIZE" value="1024000" />
+					<span id="spanAvatar"></span>
 				</div>
 				<div class="form-group">
                         <input type="password" name="senha" class="form-control" placeholder="Senha"/>
@@ -50,7 +50,7 @@
                 </div>
             </form>
         </div>
-
+        
         <script src="js/jquery.min.js"></script>
         <script src="js/bootstrap.min.js" type="text/javascript"></script>
 		<script src="js/registro.js"></script>

@@ -84,10 +84,19 @@ $(function() {
 			$(this).val().indexOf(".jpeg") > 0 ||
 			$(this).val().indexOf(".png") > 0) {
 			$("#spanAvatar").html("");
+			
+			// Mostra um preview da imagem escolhida
+			var oFReader = new FileReader();
+		    oFReader.readAsDataURL(this.files[0]);
+		    console.log(this.files[0]);
+		    oFReader.onload = function (oFREvent) {
+		        $('#avatarPreview').html('<img src="'+oFREvent.target.result+'">');
+		    };
+			
 		}
 		else {
 			$(this).val("");
-			$("#spanAvatar").html("<h5>Só são permitidos imagens do tipo jpg, jpeg, png.</h5>");
+			$("#avatarPreview").html("<h5>Só são permitidos imagens do tipo jpg, jpeg, png.</h5>");
 		}
 	})
 });
