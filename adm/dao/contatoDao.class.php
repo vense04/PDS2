@@ -39,7 +39,7 @@ public function verificaEmail($email) {
 	 * @param String $contato
 	 * @param Integer $tipoContato
 	 * @param Integer $codUsuario
-	 * @return PDOStatement
+	 * @return Integer codContato
 	 */
 	public function insereContato($contato, $tipoContato, $codUsuario) {
 		try {
@@ -57,8 +57,12 @@ public function verificaEmail($email) {
 			$stmt->bindValue(2, $codUsuario);
 			$stmt->bindValue(3, $contato);
 			$stmt->execute();
+			$codContato = $this->bancoDeDados->lastInsertId();
 			$this->bancoDeDados = null;
-			return $stmt;
+				
+			//Retorna o codContato gerado neste cadastro o/
+			return $codContato;
+			
 		} catch ( PDOException $ex ) {
 			echo "Erro: " . $ex->getMessage ();
 		}

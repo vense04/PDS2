@@ -40,5 +40,45 @@ class UsuarioDao {
 			echo "Erro: " . $ex->getMessage ();
 		}
 	}
+
+	/**
+	 * Cadastra de um novo usuário
+	 * @param String $nome
+	 * @param String $senha
+	 * @param String $username
+	 * @param Integer $tipoUsuario
+	 * @param String $avatar
+	 * @return Integer (codUsuario)
+	 */
+	public function registro($nome, $senha, $username, $tipoUsuario, $avatar) {
+		try {
+				
+			$stmt = $this->bancoDeDados->prepare( "INSERT INTO Usuario (
+														avatar
+														,	senha
+														,	username
+														,	nome
+														, 	tipoUsuario
+													) values (
+														?
+														,	?
+														,	?
+														,	?
+														,	?)");
+			$stmt->bindValue(1, $avatar);
+			$stmt->bindValue(2, $senha);
+			$stmt->bindValue(3, $username);
+			$stmt->bindValue(4, $nome);
+			$stmt->bindValue(5, $tipoUsuario);
+			$stmt->execute();
+			$codUsuario = $this->bancoDeDados->lastInsertId();
+			$this->bancoDeDados = null;
+			
+			//Retorna o codUsuário gerado neste cadastro o/
+			return $codUsuario;
+		} catch ( PDOException $ex ) {
+			echo "Erro: " . $ex->getMessage ();
+		}
+	}
 }
 ?>
