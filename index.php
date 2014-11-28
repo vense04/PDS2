@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="">
 <meta name="author" content="">
-<title>Projeto PDS2</title>
+<title>Projeto</title>
 <link rel="shortcut icon" href="">
 
 
@@ -45,8 +45,8 @@
 				<ul class="nav navbar-nav">
 					<li class="active"><a href="#">Home</a></li>
 					<li><a href="#">Sobre</a></li>
+					<li><a href="#">Cadastre-se</a></li>
 					<li><a href="#">Contato</a></li>
-					<li><a href="#">Login</a></li>
 				</ul>
 			</div>
 			<!--.nav-collapse -->
@@ -55,7 +55,7 @@
 	<section id="conteudo">
 		<div class="container">
 			<div class="row">
-			
+
 				<div class='col-sm-6 col-md-3 col-lg-3 col-xs-12'>
 					<div class='info-card '>
 						<img style='width: 100%' src='http://placehold.it/250x250' />
@@ -92,7 +92,7 @@
 						</div>
 					</div>
 				</div>
-				
+
 			</div>
 		</div>
 	</section>
