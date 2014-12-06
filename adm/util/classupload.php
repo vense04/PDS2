@@ -2,7 +2,7 @@
 	class UploadImagem{ 
 		public $width; // Definida no arquivo index.php, será a largura máxima da nossa imagem 
 		public $height; // Definida no arquivo index.php, será a altura máxima da nossa imagem 
-		protected $tipos = array("jpeg", "png"); // Nossos tipos de imagem disponíveis para este exemplo 
+		protected $tipos = array("jpeg", "jpg", "png"); // Nossos tipos de imagem disponíveis para este exemplo 
 		// Função que irá redimensionar nossa imagem 
 		protected function redimensionar($caminho, $nomearquivo){ 
 			// Determina as novas dimensões 
@@ -83,7 +83,7 @@
 			
 			// Verifica se a imagem enviada é do tipo jpeg, png
 			if (array_search($tipo, $this->tipos) === false) { 
-				$mensagem = "<font color='#F00'>Envie apenas imagens no formato jpeg, png!</font>"; 
+				$mensagem = "<font color='#F00'>Envie apenas imagens no formato jpeg, jpg, png!</font>"; 
 				return $mensagem; 
 			} // Se a imagem temporária não for movida para onde a variável com caminho e nome indica, exibiremos uma mensagem de erro 
 			else if (!move_uploaded_file($file['tmp_name'], $uploadfile)) { 
@@ -114,7 +114,7 @@
 				$mensagem = "<a href='".$uploadfile."'><font color='#070'>Upload realizado com sucesso!</font><a>"; 
 			} // -> fim else 
 				// Retornamos a mensagem com o erro ou sucesso 
-				return $mensagem; 
+				return $uploadfile; 
 			} // -> fim function salvar() } // -> fim classe 
 			
 		}

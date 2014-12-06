@@ -80,9 +80,9 @@ $(function() {
 	
 	//Filtra apenas imagens dos tipos desejados
 	$("#avatar").change(function() {
-		if ($(this).val().indexOf(".jpg") > 0 ||
-			$(this).val().indexOf(".jpeg") > 0 ||
-			$(this).val().indexOf(".png") > 0) {
+		if ($(this).val().toLowerCase().indexOf(".jpg") > 0 ||
+			$(this).val().toLowerCase().indexOf(".jpeg") > 0 ||
+			$(this).val().toLowerCase().indexOf(".png") > 0) {
 			$("#spanAvatar").html("");
 			
 			// Mostra um preview da imagem escolhida
