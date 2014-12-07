@@ -17,11 +17,12 @@ if (!empty($_POST)) {
 		include_once '../dao/usuarioDao.class.php';
 		include_once '../dao/contatoDao.class.php';
 		// Se o array $_FILES não estiver vazio realiza o upload e salva a url da imagem, caso contrário deixa o campo vazio
-		$avatar = (!empty($_FILES["avatar"])) ? uploadAvatar($_FILES["avatar"]) : "img/avatar.jpg";
+		$avatar = (!empty($_FILES["avatar"])) ? uploadAvatar($_FILES["avatar"]) : "../img/avatar.jpg";
 		$usuarioDao = new UsuarioDao();
-		//Insere o usuário e guarda o retorno, o codUsuario
-		$codUsuario = $usuarioDao->registro($nome, md5_base64($senha) . $hash, $username, 0, $avatar);
-		print md5_base64(md5_base64($senha) . $hash . "validador de senha") . $hash;
+		// Url para desbloqueio
+		$validaCadastro = md5_base64(md5_base64($senha) . $hash . "validador de senha") . $hash;
+		// Insere o usuário e guarda o retorno, o codUsuario
+		$codUsuario = $usuarioDao->registro($nome, md5_base64($senha) . $hash, $validaCadastro, $username, 0, $avatar);
 		$contatoDao = new ContatoDao();
 		//Cadastra o E-Mail do caboclo, campo tipoContato (E-Mail = 1)
 		$contatoDao->insereContato($_POST["email"], 1, $codUsuario);

@@ -17,25 +17,72 @@ class UsuarioDao {
 	 * @param String $usuario
 	 * @return PDOStatement (Resultado da consulta)
 	 */
-	public function getLogin($usuario) {
+public function getLogin($usuario) {
 		try {
 			
 			$stmt = $this->bancoDeDados->prepare( "SELECT
 														U.codUsuario
 														,	U.username
 														,	U.senha
+														,	U.validaCadastro
 														,	U.nome
 														,	U.tipoUsuario
 														,	U.avatar
+														,	U.ativo
 													FROM Usuario U
 													WHERE
-														U.username = ?
-													AND
-														U.ativo = 1");
+														U.username = ?");
 			$stmt->bindValue(1, $usuario);
 			$stmt->execute();
 			$this->bancoDeDados = null;
 			return $stmt;
+		} catch ( PDOException $ex ) {
+			echo "Erro: " . $ex->getMessage ();
+		}
+	}
+	
+	/**
+	 * Verifica existência de usuário já cadastrado
+	 * @param String $usuario
+	 * @return PDOStatement (Resultado da consulta)
+	 */
+	public function verificaUsuario($usuario) {
+		try {
+				
+			$stmt = $this->bancoDeDados->prepare( "SELECT
+														U.username
+													FROM Usuario U
+													WHERE
+														U.username = ?");
+			$stmt->bindValue(1, $usuario);
+			$stmt->execute();
+			$this->bancoDeDados = null;
+			return $stmt;
+		} catch ( PDOException $ex ) {
+			echo "Erro: " . $ex->getMessage ();
+		}
+	}
+	
+	/**
+	 * Atualiza o status de um determinado usuário, retorna 1 para true e 0 para false
+	 * @param String $usuario (Username)
+	 * @param Integer $ativo (1 ativo, 0 desativado)
+	 * @return number (1 true ou sucesso, 0 false ou fracasso, usuário não encontrado etc...)
+	 */
+	public function statusUsuario($usuario, $ativo) {
+		try {
+				
+			$stmt = $this->bancoDeDados->prepare( "UPDATE
+													Usuario
+													SET
+														ativo = ?
+													Where
+														username = ?");
+			$stmt->bindValue(1, $ativo);
+			$stmt->bindValue(2, $usuario);
+			$stmt->execute();
+			$this->bancoDeDados = null;
+			return $stmt->rowCount();
 		} catch ( PDOException $ex ) {
 			echo "Erro: " . $ex->getMessage ();
 		}
@@ -45,17 +92,19 @@ class UsuarioDao {
 	 * Cadastra de um novo usuário
 	 * @param String $nome
 	 * @param String $senha
+	 * @param String $validaCadastro
 	 * @param String $username
 	 * @param Integer $tipoUsuario
 	 * @param String $avatar
 	 * @return Integer (codUsuario)
 	 */
-	public function registro($nome, $senha, $username, $tipoUsuario, $avatar) {
+	public function registro($nome, $senha, $validaCadastro, $username, $tipoUsuario, $avatar) {
 		try {
 				
 			$stmt = $this->bancoDeDados->prepare( "INSERT INTO Usuario (
 														avatar
 														,	senha
+														,	validaCadastro
 														,	username
 														,	nome
 														, 	tipoUsuario
@@ -64,12 +113,14 @@ class UsuarioDao {
 														,	?
 														,	?
 														,	?
+														,	?
 														,	?)");
 			$stmt->bindValue(1, $avatar);
 			$stmt->bindValue(2, $senha);
-			$stmt->bindValue(3, $username);
-			$stmt->bindValue(4, $nome);
-			$stmt->bindValue(5, $tipoUsuario);
+			$stmt->bindValue(3, $validaCadastro);
+			$stmt->bindValue(4, $username);
+			$stmt->bindValue(5, $nome);
+			$stmt->bindValue(6, $tipoUsuario);
 			$stmt->execute();
 			$codUsuario = $this->bancoDeDados->lastInsertId();
 			$this->bancoDeDados = null;
