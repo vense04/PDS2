@@ -32,29 +32,52 @@ if (isset ( $_GET ['log'] )) {
 }
 // Não Está logado ?
 if (! isSet ( $_SESSION ['Usuario'] )) {
-	// Está logando
-	if (isSet ( $_POST ['usuario'] )) {
+	// Está logando ?
+	if (isSet ( $_REQUEST ['usuario'] )) {
 		include_once "dao/usuarioDao.class.php";
 		$UsuarioDao = new UsuarioDao();
-		$login = $UsuarioDao->getLogin($_POST ['usuario']);
+		$login = $UsuarioDao->getLogin($_REQUEST ['usuario']);
 		$registro = $login->fetch ( PDO::FETCH_ASSOC );
-		if ($registro ["username"] == $_POST ['usuario']) {
-			if ($registro ["senha"] != md5_base64 ( $_POST ['senha'] ) . $hash) {
-				header ( "location:index.php?erro=senhaErrada" );
-			} else {
-				// Cria a sessão
-				$_SESSION ['Usuario'] = $registro ["codUsuario"] . '+' . $registro ["nome"] . '+' . $registro ["tipoUsuario"] . '+' . $registro ["avatar"];
-				$codUsuario = $registro ["codUsuario"];
-				$tipoUsuario = $registro ["tipoUsuario"];
-				$nome = $registro ["nome"];
+		
+		// O usuário já existe em nossa base de dados ???
+		if ($registro ["username"] == $_REQUEST ['usuario']) {
+			// O usuário está ativo em nossa base de dados ??
+			if (!$registro ['ativo']) {
+				// A string de validação está correta ??
+				if ($_GET ['validaCadastro'] = $registro ["validaCadastro"]) {
+					// Se sim, ativa o usuário
+					$UsuarioDao = new UsuarioDao();
+					$UsuarioDao->statusUsuario($registro ["username"], 1);
+				}
+				// Caso contrário redireciona para o index, com a msg de validção errada
+				else {
+					header ( "location:index.php?erro=validacaoErrada" );
+				}
 			}
+			// Caso o usuário esteja validado, verifica a senha digitada
+			else {
+				if ($registro ["senha"] != md5_base64 ( $_POST ['senha'] ) . $hash) {
+					// Caso esteja incorreta, redireciona para o index, com a msg de senha errada
+					header ( "location:index.php?erro=senhaErrada" );
+				}
+			}
+			
+			// Cria a sessão, caso esteja tudo certo com o usuário
+			$_SESSION ['Usuario'] = $registro ["codUsuario"] . '+' . $registro ["nome"] . '+' . $registro ["tipoUsuario"] . '+' . $registro ["avatar"];
+			$codUsuario = $registro ["codUsuario"];
+			$tipoUsuario = $registro ["tipoUsuario"];
+			$nome = $registro ["nome"];
+			$avatar = $registro ["avatar"];
+			
 		} else {
 			//Usuário inexistente
-			header ( "location:index.php?erro=usuarioInexistente" . $login->rowCount());
+			header ( "location:index.php?erro=usuarioInexistente&usuario=" . $_REQUEST ['usuario'] . "&banco=" . $registro ["username"]);
 		}
 	} else {
-		//Não está logado
-		header ( "location:index.php?erro=true" );
+		//Não está logado, se não estiver realizando um cadastro, retorna para o index
+		if (!isSet($_POST["email"])) {
+			header ( "location:index.php?erro=true" );
+		}
 	}
 } // Está logado
 else {
@@ -62,6 +85,7 @@ else {
 	$codUsuario = $sessao [0];
 	$tipoUsuario = $sessao [1];
 	$nome = $sessao [2];
+	$avatar = $sessao [3];
 }
 
 ?>

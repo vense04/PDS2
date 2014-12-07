@@ -4,7 +4,7 @@
 if (!empty($_GET["username"])) {
 	require_once "../dao/usuarioDao.class.php";
 	$UsuarioDao = new UsuarioDao();
- 	$usuarios = $UsuarioDao->getLogin($_GET["username"]);
+ 	$usuarios = $UsuarioDao->verificaUsuario($_GET["username"]);
  	print $usuarios->rowCount(); 
 }
 // Verifica se o E-Mail existe na base de dados

@@ -12,7 +12,7 @@ class ContatoDao {
 	}
 	
 	/**
-	 * Verifica E-mail
+	 * Verifica existência de E-mail já cadastrado
 	 * @param String $email
 	 * @return PDOStatement (Resultado da consulta)
 	 */
