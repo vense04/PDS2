@@ -321,6 +321,34 @@ hr {
     -ms-transform: rotate(90deg);
     transform: rotate(90deg);
 }
+
+/* ------------------
+      Sobre 
+   ------------------ */
+#sobre {
+	padding-top: 50px;
+	margin-bottom: 0px;
+}
+#sobre h2 {
+	font-weight: 400;
+	margin-bottom: 35px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #74cfae;
+}
+
+#sobre p {
+	font-weight: 400;
+	font-size: 16px;
+}
+#sobre #tipo{
+    padding-left: 0;
+    padding-right: 0;
+    text-align: left
+}
+#sobre #tipo input{
+    width: 10%;
+}
+
 /* ------------------
       Newsletter 
    ------------------ */
