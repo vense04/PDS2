@@ -2,8 +2,6 @@
 @import url(http://fonts.googleapis.com/css?family=Lato:300,400,700,900);
 @import url(http://fonts.googleapis.com/css?family=Raleway:400,300,700,900);
 @import url(http://fonts.googleapis.com/css?family=Montserrat:400,700);
-
-
 @import url(http://fonts.googleapis.com/css?family=Abel);
 
 /* OVERALL ASPECT */
@@ -111,7 +109,14 @@ hr {
     background-color: #74cfae;
     border-color: transparent;
 }
-
+.radius{
+	color: #ffffff;
+    background-color: #74cfae;
+    border-radius: 40px;
+    padding: 10px 30px;
+    margin-top: 4px;
+    font-size: 12px;
+}
 .btn {
     padding: 10px 30px;
     margin-bottom: 0;
@@ -287,7 +292,7 @@ hr {
     margin-bottom: 30px;
 }
 
-.portfolio-modal .close-modal {
+.close-modal {
     position: absolute;
     top: 25px;
     right: 25px;
@@ -297,11 +302,11 @@ hr {
     cursor: pointer;
 }
 
-.portfolio-modal .close-modal:hover {
+.close-modal:hover {
     opacity: .3;
 }
 
-.portfolio-modal .close-modal .lr {
+.close-modal .lr {
     z-index: 1051;
     width: 1px;
     height: 75px;
@@ -312,7 +317,7 @@ hr {
     transform: rotate(45deg);
 }
 
-.portfolio-modal .close-modal .lr .rl {
+.close-modal .lr .rl {
     z-index: 1052;
     width: 1px;
     height: 75px;
@@ -412,3 +417,6 @@ hr {
 .grid img:hover {
     opacity: 1;
 }
+
+
+
