@@ -11,25 +11,20 @@ include_once 'header.php';
 					<div class="form-group">
 						<label class="col-sm-2 control-label" for="textinput">Nome</label>
 						<div class="col-sm-10">
-							<input type="text" placeholder="Nome" class="form-control">
+							<input type="text" placeholder="Nome" name="nome" class="form-control">
 						</div>
 					</div>
 					<!-- Text input-->
 					<div class="form-group">
-						<label class="col-sm-2 control-label" for="textinput">Email</label>
+						<label class="col-sm-2 control-label" for="textinput">E-mail</label>
 						<div class="col-sm-10">
-							<input type="email" placeholder="Email" class="form-control">
+							<input type="email" placeholder="Email" name="email" class="form-control">
 						</div>
 					</div>
 					<!-- Text input-->
 					<div class="form-group">
-						<label class="col-sm-2 control-label" for="textinput">RG</label>
-						<div class="col-sm-4">
-							<input type="text" placeholder="RG" class="form-control">
-						</div>
-
 						<label class="col-sm-2 control-label" for="textinput">CPF/CNPJ</label>
-						<div class="col-sm-4">
+						<div class="col-sm-10">
 							<input type="text" placeholder="CPF/CNPJ" class="form-control">
 						</div>
 					</div>
@@ -50,8 +45,10 @@ include_once 'header.php';
 					<div class="form-group">
 						<label class="col-sm-2 control-label" for="textinput">Foto</label>
 						<div class="col-sm-10">
-							<input type="file" placeholder="Foto" class="form-control">
+							<input type="file" placeholder="Foto" id="avatar"  name="avatar" class="form-control">
 						</div>
+						<span id="avatarPreview"></span>
+						<input type="hidden" name="MAX_FILE_SIZE" value="1024000" />
 					</div>
 
 					<div class="form-group">
@@ -67,6 +64,7 @@ include_once 'header.php';
 		</div>
 	</div>
 </div>
+<script src="assets/js/app/registro.js"></script>
 <?php
 include_once 'footer.php';
 ?>
