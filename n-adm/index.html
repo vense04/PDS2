@@ -75,7 +75,7 @@
 									data-toggle="modal"><i class="glyphicon glyphicon-plus"></i>
 										Cadastrar Curso</a></li>
 								<li><a href="#atualizaModal" role="button"
-									data-toggle="modal"><i class="glyphicon glyphicon-plus"></i>
+									data-toggle="modal"><i class="glyphicon glyphicon-refresh"></i>
 										Atualiza Dados</a></li>
 								<!-- 								<li><a href="#"><span class="badge">badge</span></a></li> -->
 							</ul>
@@ -195,9 +195,6 @@
 											responsive layouts. With dozens of reusable components for
 											navigation, pagination, labels, alerts etc..</div>
 									</div>
-
-
-
 								</div>
 
 								<!-- main col right -->
@@ -220,7 +217,7 @@
 												<label class="col-md-2 control-label" for="selectbasic">Data</label>
 												<div class="col-md-4">
 													<input type="text" placeholder="Data do curso"
-														class="form-control">
+														class="form-control">.
 												</div>
 											</div>
 											<form class="form-horizontal">
@@ -305,134 +302,105 @@
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal"
 						aria-hidden="true">×</button>
-					Cadastrar Curso
+					<h1>Cadastrar Curso</h1>
 				</div>
-				<form class="form-horizontal" role="form">
-					<div class="modal-body">
-						
-						<!-- Text input-->
-						<div class="form-group">
-							<label class="col-sm-2 control-label" for="textinput">Nome</label>
-							<div class="col-sm-4">
-								<input type="text" placeholder="Nome do Curso"
-									class="form-control">
+				<form id="">
+					<div class="form-group">
+						<div class="row">
+							<div class="col-sm-8">
+								<label class="control-label">Nome</label> <input type="text"
+									class="form-control" name="nome" />
 							</div>
 
-							<label class="col-sm-2 control-label" for="textinput">Tema</label>
-							<div class="col-sm-4">
-								<input type="text" placeholder="Tema do Curso"
-									class="form-control">
-							</div>
-						</div>
-						<!-- Text input-->
-						<div class="form-group">
-							<label class="col-sm-2 control-label" for="textinput">Data
-								de inicio</label>
-							<div class="col-sm-4">
-								<input type="text" placeholder="Data de inicio"
-									class="form-control">
-							</div>
-
-							<label class="col-sm-2 control-label" for="textinput">Data
-								de Fim</label>
-							<div class="col-sm-4">
-								<input type="text" placeholder="Data de Fim"
-									class="form-control">
-							</div>
-						</div>
-
-						<!-- Text input-->
-						<div class="form-group">
-							<label class="col-sm-2 control-label" for="textinput">Carga
-								Horaria</label>
-							<div class="col-sm-4">
-								<input type="text" placeholder="Carga Horaria"
-									class="form-control">
-							</div>
-
-							<label class="col-sm-2 control-label" for="textinput">Horas
-								Certificado</label>
-							<div class="col-sm-4">
-								<input type="text"
-									placeholder="Horas minimas para o Certificado"
-									class="form-control">
-							</div>
-						</div>
-						<!-- Text input-->
-						<div class="form-group">
-							<label class="col-sm-2 control-label" for="textinput">Foto
-								Curso</label>
-							<div class="col-sm-4">
-								<input type="file">
-							</div>
-						</div>
-
-						<!-- Text input-->
-						<div class="form-group">
-							<label class="col-sm-2 control-label" for="textinput">Arquivos
-								do Curso</label>
-							<div class="col-sm-4">
-								<input type="file">
-							</div>
-						</div>
-
-						<div class="form-group">
-							<label class="col-sm-2 control-label" for="textinput">Descrição</label>
-							<textarea rows="10" cols="10" style="width: 80%"></textarea>
-						</div>
-
-
-						<div class="form-group">
-							<label class="col-sm-2 control-label" for="textinput">CEP</label>
-							<div class="col-sm-4">
-								<input type="text" placeholder="CEP" class="form-control">
-							</div>
-
-							<label class="col-sm-2 control-label" for="textinput">Rua/Av.</label>
-							<div class="col-sm-4">
-								<input type="text" placeholder="Rua" class="form-control">
-							</div>
-						</div>
-						<!-- Text input-->
-						<div class="form-group">
-							<label class="col-sm-2 control-label" for="textinput">Numero</label>
-							<div class="col-sm-4">
-								<input type="text" placeholder="Numero" class="form-control">
-							</div>
-
-							<label class="col-sm-2 control-label" for="textinput">Bairro</label>
-							<div class="col-sm-4">
-								<input type="text" placeholder="Bairro" class="form-control">
-							</div>
-						</div>
-						<!-- Text input-->
-						<div class="form-group">
-							<label class="col-sm-2 control-label" for="textinput">Cidade.</label>
-							<div class="col-sm-4">
-								<input type="text" placeholder="Cidade" class="form-control">
-							</div>
-
-							<label class="col-sm-2 control-label" for="textinput">Estado</label>
-							<div class="col-sm-4">
-								<input type="text" placeholder="Estado" class="form-control">
-							</div>
-						</div>
-
-
-					</div>
-					<div class="modal-footer">
-						<div>
-							<div class="form-group">
-								<div class="col-sm-offset-2 col-sm-8">
-									<div class="pull-right">
-										<button type="reset" class="btn btn-theme">Cancelar</button>
-										<button type="submit" class="btn btn-theme">Enviar</button>
-									</div>
-								</div>
+							<div class="col-sm-4 selectContainer">
+								<label class="control-label">Tema</label> <input type="text"
+									class="form-control" name="tema" />
 							</div>
 						</div>
 					</div>
+
+					<div class="form-group">
+						<div class="row">
+							<div class="col-sm-4">
+								<label class="control-label">Data Inicio</label> <input
+									type="text" class="form-control" name="" />
+							</div>
+
+							<div class="col-sm-4">
+								<label class="control-label">Data Fim</label> <input type="text"
+									class="form-control" name="" />
+							</div>
+
+							<div class="col-sm-4">
+								<label class="control-label">Carga Horaria</label> <input
+									type="text" class="form-control" name="" />
+							</div>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<div class="row">
+							<div class="col-sm-6">
+								<label class="control-label">Foto</label> <input type="file"
+									class="form-control" name="" />
+							</div>
+
+							<div class="col-sm-6">
+								<label class="control-label">Arquivo</label> <input type="file"
+									class="form-control" name="" />
+							</div>
+						</div>
+					</div>
+
+					<div class="form-group" style="margin-left: 18px">
+						<label class="control-label">Descrição</label>
+						<textarea class="form-control" name="review" rows="10"
+							style="width: 98%;height:80px"></textarea>
+					</div>
+					
+					<div class="form-group">
+						<div class="row">
+							<div class="col-sm-4 selectContainer">
+								<label class="control-label">CEP</label> <input type="text"
+									class="form-control" name="" />
+							</div>
+							<div class="col-sm-8">
+								<label class="control-label">Rua/Av.</label> <input type="text"
+									class="form-control" name="" />
+							</div>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<div class="row">
+							<div class="col-sm-4">
+								<label class="control-label">Numero</label> <input
+									type="text" class="form-control" name="" />
+							</div>
+
+							<div class="col-sm-4">
+								<label class="control-label">Bairro</label> 
+								<input type="text" class="form-control" name="" />
+							</div>
+
+							<div class="col-sm-4">
+								<label class="control-label">Cidade</label> <input
+									type="text" class="form-control" name="" />
+							</div>
+						</div>
+					</div>
+					
 				</form>
+				<div class="modal-footer">
+					<div class="form-group">
+						<div class="col-sm-offset-2 col-sm-8">
+							<div class="pull-right">
+								<button type="reset" class="btn btn-theme">Cancelar</button>
+								<button type="submit" class="btn btn-theme">Enviar</button>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -445,7 +413,7 @@
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal"
 						aria-hidden="true">×</button>
-					Atualiza Dados
+					<h1>Atualiza Dados</h1>
 				</div>
 				<form class="form-horizontal" role="form">
 					<div class="modal-body">

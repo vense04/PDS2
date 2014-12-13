@@ -1,5 +1,4 @@
 $(function(){
-   
 	$.fn.extend({
 		filterTable: function(){
 			return this.each(function(){
