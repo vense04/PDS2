@@ -29,9 +29,9 @@ include_once 'header.php';
 							<input type="text" placeholder="RG" class="form-control">
 						</div>
 
-						<label class="col-sm-2 control-label" for="textinput">CPF</label>
+						<label class="col-sm-2 control-label" for="textinput">CPF/CNPJ</label>
 						<div class="col-sm-4">
-							<input type="text" placeholder="CPF" class="form-control">
+							<input type="text" placeholder="CPF/CNPJ" class="form-control">
 						</div>
 					</div>
 					<!-- Text input-->
@@ -46,52 +46,7 @@ include_once 'header.php';
 							<input type="text" placeholder="Senha" class="form-control">
 						</div>
 					</div>
-					<div class="form-group">
-						<label class="col-sm-2 control-label" for="textinput">CEP</label>
-						<div class="col-sm-4">
-							<input type="text" placeholder="Cep" class="form-control">
-						</div>
-						<label class="col-sm-2 control-label" for="textinput">Estado</label>
-						<div class="col-sm-4">
-							<input type="text" placeholder="Estado" class="form-control">
-						</div>
-					</div>
 
-					<!-- Text input-->
-					<div class="form-group">
-						<label class="col-sm-2 control-label" for="textinput">Rua/Av.</label>
-						<div class="col-sm-4">
-							<input type="text" placeholder="Rua/Av." class="form-control">
-						</div>
-
-						<label class="col-sm-2 control-label" for="textinput">Numero</label>
-						<div class="col-sm-4">
-							<input type="text" placeholder="Numero" class="form-control">
-						</div>
-					</div>
-					<!-- Text input-->
-					<div class="form-group">
-						<label class="col-sm-2 control-label" for="textinput">Bairro.</label>
-						<div class="col-sm-4">
-							<input type="text" placeholder="Bairro" class="form-control">
-						</div>
-
-						<label class="col-sm-2 control-label" for="textinput">Cidade</label>
-						<div class="col-sm-4">
-							<input type="text" placeholder="Cidade" class="form-control">
-						</div>
-					</div>
-					<div class="form-group">
-						<label class="col-sm-2 control-label" for="textinput">Telefone</label>
-						<div class="col-sm-4">
-							<input type="text" placeholder="Telefone" class="form-control">
-						</div>
-
-						<label class="col-sm-2 control-label" for="textinput">Whatsapp</label>
-						<div class="col-sm-4">
-							<input type="text" placeholder="Whatsapp" class="form-control">
-						</div>
-					</div>
 					<!-- Text input-->
 					<div class="form-group">
 						<label class="col-sm-2 control-label" for="textinput">Foto</label>

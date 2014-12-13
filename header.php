@@ -38,7 +38,7 @@
 					<span class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="#"><i
+				<a class="navbar-brand" href="index.php"><i
 					class="glyphicon glyphicon-flash"></i></a>
 			</div>
 			<div class="navbar-collapse collapse">
