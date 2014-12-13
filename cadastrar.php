@@ -7,7 +7,6 @@ include_once 'header.php';
 		<div class="row">
 			<div class="col-md-6">
 				<form class="form-horizontal" role="form">
-
 					<!-- Text input-->
 					<div class="form-group">
 						<label class="col-sm-2 control-label" for="textinput">Nome</label>

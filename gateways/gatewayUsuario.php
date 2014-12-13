@@ -25,6 +25,8 @@ if (isSet($_POST["usuario"])) {
 				
 				$dados = $_POST["usuario"];
 				
+				$curl = curl_init();
+				curl_setopt($curl, CURLOPT_POST, true);
 				curl_setopt($curl, CURLOPT_URL, $url);
 				curl_setopt($curl, CURLOPT_POSTFIELDS, $dados);
 				curl_setopt($curl, CURLOPT_FOLLOWLOCATION, true);
