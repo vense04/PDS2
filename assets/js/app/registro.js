@@ -42,7 +42,7 @@ $(function() {
 					}
 					else {
 						campoEmail.css({"background-color" : "#FF0000", "color" : "white"});
-						$("#spanEmail").html("<h5>Já existe um usuário com esse E-Mail.</h5>");
+						$("#spanEmail").html("<h5>Já existe um usuário com esse E-Mail, ou o formato digitado é inválido.</h5>");
 						emailValido = false;
 					}
 				}

@@ -12,7 +12,13 @@ if (!empty($_GET["email"])) {
 	require_once "../../../dao/contatoDao.class.php";
 	$ContatoDao = new ContatoDao();
 	$contatos = $ContatoDao->verificaEmail($_GET["email"]);
-	print $contatos->rowCount();
+	if (!filter_var($_GET["email"], FILTER_VALIDATE_EMAIL)) {
+	    print 1;
+	}
+	else {
+		print $contatos->rowCount();
+	}
+	
 }
 
 ?>

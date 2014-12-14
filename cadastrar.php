@@ -20,6 +20,7 @@ include_once 'header.php';
 							<div class="col-md-8">
 								<label class="control-label">Email</label> <input type="text"
 									class="form-control" name="email" />
+									<span id="spanEmail" class="text-red"></span>
 							</div>
 						</div>
 					</div>
