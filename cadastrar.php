@@ -10,8 +10,8 @@ include_once 'header.php';
 					<div class="form-group container">
 						<div class="row">
 							<div class="col-md-8">
-								<label class="control-label">Nome</label> <input type="text"
-									class="form-control" name="nome" />
+								<label class="control-label">Nome</label> 
+								<input type="text" class="form-control" name="nome" />
 							</div>
 						</div>
 					</div>
