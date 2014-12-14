@@ -11,6 +11,8 @@
 <link href="../assets/css/styles.css" rel="stylesheet">
 
 <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+ <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
 <script src="../assets/js/bootstrap.js"></script>
 <script src="../assets/js/scripts.js"></script>
 <script>
@@ -24,6 +26,8 @@
 				$(this).html("Ocultar");
 			}
 		})
+		
+		$( ".date-picker" ).datepicker();
 	});
 </script>
 
@@ -297,16 +301,16 @@
 						<div class="row">
 							<div class="col-sm-4">
 								<label class="control-label">Data Inicio</label> <input
-									type="text" class="form-control" name="" />
+									type="text" class="form-control date-picker" name="" />
 							</div>
 
 							<div class="col-sm-4">
 								<label class="control-label">Data Fim</label> <input type="text"
-									class="form-control" name="" />
+									class="form-control date-picker" name="" />
 							</div>
 
 							<div class="col-sm-4">
-								<label class="control-label">Carga Horaria</label> <input
+								<label class="control-label">Carga horaria</label> <input
 									type="text" class="form-control" name="" />
 							</div>
 						</div>
@@ -314,12 +318,12 @@
 					<div class="form-group">
 						<div class="row">
 							<div class="col-sm-6">
-								<label class="control-label">Data Maxima Inscrição</label> <input
-									type="text" class="form-control" name="" />
+								<label class="control-label">Data maxima para inscrição</label> <input
+									type="text" class="form-control date-picker" name="" />
 							</div>
 
 							<div class="col-sm-6">
-								<label class="control-label">Carga minima Certificado</label> <input
+								<label class="control-label">Carga minima certificado</label> <input
 									type="text" class="form-control" name="" />
 							</div>
 						</div>
