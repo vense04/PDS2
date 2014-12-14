@@ -13,7 +13,7 @@ $(function() {
 	// Verifica a existência do usuário no sistema
 	campoUserName.keyup(function() {
 		$.get(
-				"ajax/verifica.php?username=" + campoUserName.val(),
+				"../../php/valida/ajax/verifica.php?username=" + campoUserName.val(),
 				function(dados, status){
 					if (parseInt(dados) == 0) {
 						original(campoUserName, $("#spanUserName"));
@@ -35,7 +35,7 @@ $(function() {
 	// Verifica a existência do email no sistema
 	campoEmail.keyup(function() {
 		$.get(
-				"ajax/verifica.php?email=" + campoEmail.val(),
+				"../../php/valida/ajax/verifica.php?email=" + campoEmail.val(),
 				function(dados, status){
 					if (parseInt(dados) == 0) {
 						original(campoEmail, $("#spanEmail"));
