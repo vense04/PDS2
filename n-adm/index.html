@@ -23,9 +23,7 @@
 				$(this).empty();
 				$(this).html("Ocultar");
 			}
-
 		})
-
 	});
 </script>
 
@@ -114,31 +112,6 @@
 											</p>
 										</div>
 									</div>
-
-
-									<div class="panel panel-default">
-										<div class="panel-heading">
-											<a href="#meus-cursos" data-toggle="collapse"
-												data-target="#meus-cursos" class="pull-right most-ocul">
-												Mostrar </a>
-											<h4>Meus Cursos</h4>
-										</div>
-										<div class="panel-body">
-											<div id="meus-cursos" class="collapse">
-												<div class="panel-body">
-													<div class="list-group">
-														<a class="list-group-item">Curso 1</a> <a
-															class="list-group-item">Curso 2</a> <a
-															class="list-group-item">Curso 3</a> <a
-															class="list-group-item">Curso 4</a> <a
-															class="list-group-item">Curso 5</a> <a
-															class="list-group-item">Curso 6</a>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-
 									<div class="panel panel-default">
 										<div class="panel-heading">
 											<a href="#cursos-concluidos" data-toggle="collapse"
@@ -304,6 +277,7 @@
 						aria-hidden="true">×</button>
 					<h1>Cadastrar Curso</h1>
 				</div>
+
 				<form id="">
 					<div class="form-group">
 						<div class="row">
@@ -337,7 +311,19 @@
 							</div>
 						</div>
 					</div>
+					<div class="form-group">
+						<div class="row">
+							<div class="col-sm-6">
+								<label class="control-label">Data Maxima Inscrição</label> <input
+									type="text" class="form-control" name="" />
+							</div>
 
+							<div class="col-sm-6">
+								<label class="control-label">Carga minima Certificado</label> <input
+									type="text" class="form-control" name="" />
+							</div>
+						</div>
+					</div>
 					<div class="form-group">
 						<div class="row">
 							<div class="col-sm-6">
@@ -355,9 +341,9 @@
 					<div class="form-group" style="margin-left: 18px">
 						<label class="control-label">Descrição</label>
 						<textarea class="form-control" name="review" rows="10"
-							style="width: 98%;height:80px"></textarea>
+							style="width: 98%; height: 80px"></textarea>
 					</div>
-					
+
 					<div class="form-group">
 						<div class="row">
 							<div class="col-sm-4 selectContainer">
@@ -374,33 +360,34 @@
 					<div class="form-group">
 						<div class="row">
 							<div class="col-sm-4">
-								<label class="control-label">Numero</label> <input
-									type="text" class="form-control" name="" />
+								<label class="control-label">Numero</label> <input type="text"
+									class="form-control" name="" />
 							</div>
 
 							<div class="col-sm-4">
-								<label class="control-label">Bairro</label> 
-								<input type="text" class="form-control" name="" />
+								<label class="control-label">Bairro</label> <input type="text"
+									class="form-control" name="" />
 							</div>
 
 							<div class="col-sm-4">
-								<label class="control-label">Cidade</label> <input
-									type="text" class="form-control" name="" />
+								<label class="control-label">Cidade</label> <input type="text"
+									class="form-control" name="" />
 							</div>
 						</div>
 					</div>
-					
+
+
+					<div class="modal-footer">
+						<div class="form-group">
+							<div class="col-sm-offset-2 col-sm-8">
+								<div class="pull-right">
+									<button type="reset" class="btn btn-theme">Cancelar</button>
+									<button type="submit" class="btn btn-theme">Enviar</button>
+								</div>
+							</div>
+						</div>
+					</div>
 				</form>
-				<div class="modal-footer">
-					<div class="form-group">
-						<div class="col-sm-offset-2 col-sm-8">
-							<div class="pull-right">
-								<button type="reset" class="btn btn-theme">Cancelar</button>
-								<button type="submit" class="btn btn-theme">Enviar</button>
-							</div>
-						</div>
-					</div>
-				</div>
 			</div>
 		</div>
 	</div>
@@ -415,45 +402,38 @@
 						aria-hidden="true">×</button>
 					<h1>Atualiza Dados</h1>
 				</div>
-				<form class="form-horizontal" role="form">
-					<div class="modal-body">
-						<!-- Text input-->
-						<div class="form-group">
-							<label class="col-sm-2 control-label" for="textinput">Nome</label>
-							<div class="col-sm-8">
-								<input type="text" placeholder="Nome" class="form-control">
+				<form id="">
+					<div class="form-group">
+						<div class="row">
+							<div class="col-sm-6">
+								<label class="control-label">Nome</label> <input type="text"
+									class="form-control" name="nome" />
 							</div>
-						</div>
-						<!-- Text input-->
-						<div class="form-group">
-							<label class="col-sm-2 control-label" for="textinput">Email</label>
-							<div class="col-sm-8">
-								<input type="email" placeholder="Email" class="form-control">
-							</div>
-						</div>
-						<div class="form-group">
-							<label class="col-sm-2 control-label" for="textinput">Senha</label>
-							<div class="col-sm-8">
-								<input type="password" placeholder="Senha" class="form-control">
-							</div>
-						</div>
-
-						<!-- Text input-->
-						<div class="form-group">
-							<label class="col-sm-2 control-label" for="textinput">Foto</label>
-							<div class="col-sm-8">
-								<input type="file" placeholder="Foto" class="form-control">
+							<div class="col-sm-6 selectContainer">
+								<label class="control-label">Senha</label> <input
+									type="password" class="form-control" name="tema" />
 							</div>
 						</div>
 					</div>
+					<div class="form-group">
+						<div class="row">
+							<div class="col-sm-6">
+								<label class="control-label">Email</label> <input type="text"
+									class="form-control" name="nome" />
+							</div>
+							<div class="col-sm-6">
+								<label class="control-label">Foto</label> <input type="file"
+									class="form-control" name="" />
+							</div>
+						</div>
+					</div>
+
 					<div class="modal-footer">
-						<div>
-							<div class="form-group">
-								<div class="col-sm-offset-2 col-sm-8">
-									<div class="pull-right">
-										<button type="reset" class="btn btn-theme">Cancelar</button>
-										<button type="submit" class="btn btn-theme">Enviar</button>
-									</div>
+						<div class="form-group">
+							<div class="col-sm-offset-2 col-sm-8">
+								<div class="pull-right">
+									<button type="reset" class="btn btn-theme">Cancelar</button>
+									<button type="submit" class="btn btn-theme">Enviar</button>
 								</div>
 							</div>
 						</div>

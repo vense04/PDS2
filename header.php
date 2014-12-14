@@ -60,8 +60,6 @@
 							<li class="divider"></li>
 							<li><a href="#">Sair</a></li>
 						</ul></li>
-
-
 				</ul>
 			</div>
 			<!--/.nav-collapse -->
