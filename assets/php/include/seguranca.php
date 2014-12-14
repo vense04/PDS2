@@ -23,6 +23,8 @@ function confereSenha($senha, $confirmaSenha) {
 	}
 }
 
+$logado = false;
+
 // LogOut do Sistema
 if (isset ( $_GET ['log'] )) {
 	if ($_GET ['log'] == 'out') {
@@ -34,7 +36,7 @@ if (isset ( $_GET ['log'] )) {
 if (! isSet ( $_SESSION ['Usuario'] )) {
 	// Está logando ?
 	if (isSet ( $_REQUEST ['usuario'] )) {
-		include_once "dao/usuarioDao.class.php";
+		include_once "assets/php/dao/usuarioDao.class.php";
 		$UsuarioDao = new UsuarioDao();
 		$login = $UsuarioDao->getLogin($_REQUEST ['usuario']);
 		$registro = $login->fetch ( PDO::FETCH_ASSOC );
@@ -58,27 +60,33 @@ if (! isSet ( $_SESSION ['Usuario'] )) {
 			else {
 				if ($registro ["senha"] != md5_base64 ( $_POST ['senha'] ) . $hash) {
 					// Caso esteja incorreta, redireciona para o index, com a msg de senha errada
-					header ( "location:index.php?erro=senhaErrada" );
+					header ( "location:index.php?erro=senhaErrada");
+				}
+				else {
+					// Cria a sessão, caso esteja tudo certo com o usuário
+					$_SESSION ['Usuario'] = $registro ["codUsuario"] . '+' . $registro ["nome"] . '+' . $registro ["tipoUsuario"] . '+' . $registro ["avatar"];
+					$codUsuario = $registro ["codUsuario"];
+					$tipoUsuario = $registro ["tipoUsuario"];
+					$nome = $registro ["nome"];
+					$avatar = $registro ["avatar"];
+					$logado = true;
 				}
 			}
 			
-			// Cria a sessão, caso esteja tudo certo com o usuário
-			$_SESSION ['Usuario'] = $registro ["codUsuario"] . '+' . $registro ["nome"] . '+' . $registro ["tipoUsuario"] . '+' . $registro ["avatar"];
-			$codUsuario = $registro ["codUsuario"];
-			$tipoUsuario = $registro ["tipoUsuario"];
-			$nome = $registro ["nome"];
-			$avatar = $registro ["avatar"];
+			
 			
 		} else {
 			//Usuário inexistente
 			header ( "location:index.php?erro=usuarioInexistente&usuario=" . $_REQUEST ['usuario'] . "&banco=" . $registro ["username"]);
 		}
-	} else {
-		//Não está logado, se não estiver realizando um cadastro, retorna para o index
-		if (!isSet($_POST["email"])) {
-			header ( "location:index.php?erro=true" );
-		}
-	}
+	} 
+	
+// 	else {
+// 		//Não está logado, se não estiver realizando um cadastro, retorna para o index
+// 		if (!isSet($_POST["email"])) {
+// 			header ( "location:index.php?erro=true" );
+// 		}
+// 	}
 } // Está logado
 else {
 	$sessao = explode ( '+', $_SESSION ['Usuario'] );
@@ -86,6 +94,7 @@ else {
 	$tipoUsuario = $sessao [1];
 	$nome = $sessao [2];
 	$avatar = $sessao [3];
+	$logado = true;
 }
 
 ?>

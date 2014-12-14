@@ -50,6 +50,9 @@
 <script src="assets/js/bootstrap.js"></script>
 
 
+
+<?php  if (!$logado) { ?>
+<!-- Inicio modal login -->
 <div class="modal fade bs-modal-sm" id="myModal" tabindex="-1"
 	role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
 	<div class="modal-dialog">
@@ -57,7 +60,7 @@
 			<div class="modal-body">
 				<div id="myTabContent" class="tab-content">
 					<div class="tab-pane fade active in" id="login">
-						<form class="form-horizontal">
+						<form class="form-horizontal" id="logon" method="post">
 							<div class="close-modal" data-dismiss="modal">
 								<div class="lr">
 									<div class="rl"></div>
@@ -70,8 +73,8 @@
 								<div class="control-group">
 									<label class="control-label" for="userid">Usuario:</label>
 									<div class="controls">
-										<input required="" id="userid" name="userid" type="text"
-											class="form-control" placeholder="" class="input-medium"
+										<input required="" id="userid" name="usuario" type="text"
+											class="form-control" placeholder="Usuário" class="input-medium"
 											required="">
 									</div>
 								</div>
@@ -80,7 +83,7 @@
 								<div class="control-group">
 									<label class="control-label" for="passwordinput">Senha:</label>
 									<div class="controls">
-										<input required="" id="passwordinput" name="passwordinput"
+										<input required="" id="passwordinput" name="senha"
 											class="form-control" type="password" placeholder=""
 											class="input-medium">
 									</div>
@@ -89,7 +92,7 @@
 								<div class="control-group">
 									<label class="control-label" for="signin"></label>
 									<div class="controls">
-										<button id="login" name="login" class="btn btn-theme">Entrar</button>
+										<button type="submit" id="submit" class="btn btn-theme">Entrar</button>
 									</div>
 								</div>
 							</fieldset>
@@ -100,9 +103,16 @@
 		</div>
 	</div>
 </div>
+<!-- Fim modal login -->
+<?php }?>
+<script type="text/javascript">
+	$(function() {
+		$("#logon").submit(function() {
+			
+		});
+	})
+</script>
 </body>
 </html>
-novo
-
 
 

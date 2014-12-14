@@ -1,3 +1,7 @@
+<?php 
+	// Segurança do sistema
+	include_once 'assets/php/include/seguranca.php';
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -46,20 +50,21 @@
 					<li><a href="index.php">Home</a></li>
 					<li><a href="sobre.php">Sobre</a></li>
 					<li><a href="cursos.php">Cursos</a></li>
+					<?php  if (!$logado) { ?>
 					<li><a href="cadastrar.php">Cadastre-se</a></li>
 					<li class="active"><button class="btn-theme radius" href="#login"
 							data-toggle="modal" data-target=".bs-modal-sm">LOGIN</button></li>
-
+					<?} else { ?>
 					<li class="dropdown"><a href="#" class="dropdown-toggle"
 						data-toggle="dropdown" role="button" aria-expanded="false"> <img
 							class="profile-img foto"
-							src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=40"
-							alt="" /> <span class="caret"></span></a>
+							src="assets/img/<?= $avatar ?>" style="max-width: 100px; max-height: 41px" /> <span class="caret"></span></a>
 						<ul class="dropdown-menu" role="menu">
 							<li><a href="#">Painel Administrativo</a></li>
 							<li class="divider"></li>
-							<li><a href="#">Sair</a></li>
+							<li><a href="?log=out">Sair</a></li>
 						</ul></li>
+					<?}?>
 				</ul>
 			</div>
 			<!--/.nav-collapse -->
