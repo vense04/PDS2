@@ -31,14 +31,25 @@ include_once 'header.php';
 					<!-- Text input-->
 					<div class="form-group">
 						<label class="col-sm-2 control-label" for="textinput">Usuario</label>
-						<div class="col-sm-4">
-							<input type="text" placeholder="Usuario" class="form-control">
+						<div class="col-sm-10">
+							<input type="text" name="username" placeholder="Usuario" class="form-control">
+							 <span id="spanUserName" class="text-red"></span>
 						</div>
 
+					</div>
+					
+					<!-- Text input-->
+					<div class="form-group">
 						<label class="col-sm-2 control-label" for="textinput">Senha</label>
 						<div class="col-sm-4">
-							<input type="text" placeholder="Senha" class="form-control">
+							<input type="password" name="senha" placeholder="Senha" class="form-control">
 						</div>
+
+						<label class="col-sm-2 control-label" for="textinput">Re-Senha</label>
+						<div class="col-sm-4">
+							<input type="password" name="re-senha" placeholder="Senha novamente" class="form-control">
+						</div>
+						<span id="spanReSenha" class="text-red"></span>
 					</div>
 
 					<!-- Text input-->
