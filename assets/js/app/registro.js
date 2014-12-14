@@ -34,8 +34,7 @@ $(function() {
 	})
 	// Verifica a existência do email no sistema
 	campoEmail.keyup(function() {
-		$.get(
-				"assets/php/valida/verifica.php?email=" + campoEmail.val(),
+		$.get("assets/php/valida/verifica.php?email=" + campoEmail.val(),
 				function(dados, status){
 					if (parseInt(dados) == 0) {
 						original(campoEmail, $("#spanEmail"));
