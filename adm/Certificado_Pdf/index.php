@@ -5,7 +5,7 @@ date_default_timezone_set('America/Sao_Paulo');
 $html="<html><body>";
 $html.='
 	<h1>Certificado do Curso !!!</h1>
-	<img src="http://localhost/PDS2/adm/Certificado_Pdf/img/logo.png"/>	
+	<img src="../Certificado_Pdf/img/logo.png"/>	
 	<hr>	
 	<table width="200" border="2" cellpadding="5" cellspacing="5">	
 	<tr>
@@ -34,5 +34,5 @@ $dompdf->load_html($hmtl);
 $dompdf->render();
 $dompdf->stream("certificadoCurso.pdf");
 
-//Essa biblioteca esta diponível em:
+
 ?>

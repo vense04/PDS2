@@ -89,9 +89,8 @@ $(function() {
 		    oFReader.readAsDataURL(this.files[0]);
 		    console.log(this.files[0]);
 		    oFReader.onload = function (oFREvent) {
-		        $('#avatarPreview').html('<img src="'+oFREvent.target.result+'">');
+		        $('#avatarPreview').html('<img style="max-width:350px;max-height:350px; margin:10px auto !important" class="img-responsive" src="'+oFREvent.target.result+'">');
 		    };
-			
 		}
 		else {
 			$(this).val("");

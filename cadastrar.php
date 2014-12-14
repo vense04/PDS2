@@ -5,65 +5,76 @@ include_once 'header.php';
 	<div class="container">
 		<h2>Cadastre-se</h2>
 		<div class="row">
-			<div class="col-md-6">
+			<div class="col-md-9">
 				<form class="form-horizontal" role="form">
-					<!-- Text input-->
 					<div class="form-group">
-						<label class="col-sm-2 control-label" for="textinput">Nome</label>
-						<div class="col-sm-10">
-							<input type="text" placeholder="Nome" name="nome" class="form-control">
+						<div class="row">
+							<div class="col-md-8">
+								<label class="control-label">Nome</label> <input type="text"
+									class="form-control" name="nome" />
+							</div>
 						</div>
 					</div>
-					<!-- Text input-->
 					<div class="form-group">
-						<label class="col-sm-2 control-label" for="textinput">E-mail</label>
-						<div class="col-sm-10">
-							<input type="email" placeholder="Email" name="email" class="form-control">
+						<div class="row">
+							<div class="col-md-8">
+								<label class="control-label">Email</label> <input type="text"
+									class="form-control" name="email" />
+							</div>
 						</div>
 					</div>
-					<!-- Text input-->
 					<div class="form-group">
-						<label class="col-sm-2 control-label" for="textinput">CPF/CNPJ</label>
-						<div class="col-sm-10">
-							<input type="text" placeholder="CPF/CNPJ" class="form-control">
-						</div>
-					</div>
-					<!-- Text input-->
-					<div class="form-group">
-						<label class="col-sm-2 control-label" for="textinput">Usuario</label>
-						<div class="col-sm-10">
-							<input type="text" name="username" placeholder="Usuario" class="form-control">
-							 <span id="spanUserName" class="text-red"></span>
-						</div>
+						<div class="row">
+							<div class="col-md-4">
+								<label class="control-label">RG</label> <input type="text"
+									class="form-control" name="rg" />
+							</div>
 
+							<div class="col-md-4">
+								<label class="control-label">CPF/CNPJ</label> <input type="text"
+									class="form-control" name="cpf" />
+							</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="row">
+							<div class="col-md-8">
+								<label class="control-label">Usuario</label> 
+								<input type="text" class="form-control" name="username" />
+								<span id="spanUserName" class="text-red"></span>
+							</div>
+						</div>
+					</div>
+
+					
+					<div class="form-group">
+						<div class="row">
+							<div class="col-md-4">
+								<label class="control-label">Senha</label> 
+								<input type="password" class="form-control" name="senha" />
+							</div>
+
+							<div class="col-md-4">
+								<label class="control-label">Re-Senha</label> 
+								<input type="password" class="form-control" name="re-senha" />
+								<span id="spanReSenha" class="text-red"></span>
+							</div>
+						</div>
 					</div>
 					
-					<!-- Text input-->
 					<div class="form-group">
-						<label class="col-sm-2 control-label" for="textinput">Senha</label>
-						<div class="col-sm-4">
-							<input type="password" name="senha" placeholder="Senha" class="form-control">
+						<div class="row">
+							<div class="col-md-8">
+								<label class="control-label">Foto</label> 
+								<input type="file" class="form-control" name="avatar" id="avatar" />
+								<span id="avatarPreview"></span> 
+								<input type="hidden"name="MAX_FILE_SIZE" value="1024000" />
+							</div>
 						</div>
-
-						<label class="col-sm-2 control-label" for="textinput">Re-Senha</label>
-						<div class="col-sm-4">
-							<input type="password" name="re-senha" placeholder="Senha novamente" class="form-control">
-						</div>
-						<span id="spanReSenha" class="text-red"></span>
-					</div>
-
-					<!-- Text input-->
-					<div class="form-group">
-						<label class="col-sm-2 control-label" for="textinput">Foto</label>
-						<div class="col-sm-10">
-							<input type="file" placeholder="Foto" id="avatar"  name="avatar" class="form-control">
-						</div>
-						<span id="avatarPreview"></span>
-						<input type="hidden" name="MAX_FILE_SIZE" value="1024000" />
 					</div>
 
 					<div class="form-group">
-						<div class="col-sm-offset-2 col-sm-10">
+						<div class=" col-md-8">
 							<div class="pull-right">
 								<button type="reset" class="btn btn-theme">Cancelar</button>
 								<button type="submit" class="btn btn-theme">Enviar</button>
