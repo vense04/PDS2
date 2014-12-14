@@ -62,6 +62,8 @@
 						<ul class="dropdown-menu" role="menu">
 							<li><a href="#">Meus Cursos</a></li>
 							<li class="divider"></li>
+							<li><a href="cadastrarCurso.php">Cadastrar Curso</a></li>
+							<li class="divider"></li>
 							<li><a href="#">Alterar Cadastro</a></li>
 							<li class="divider"></li>
 							<li class="divider"></li>
