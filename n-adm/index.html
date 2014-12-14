@@ -5,16 +5,26 @@
 <meta charset="utf-8">
 <title>Administrator</title>
 <meta name="generator" content="Bootply" />
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<!-- CSS -->
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
 <link href="../assets/css/bootstrap.css" rel="stylesheet">
 <link href="../assets/css/styles.css" rel="stylesheet">
 
+<link href="../assets/css/daterangepicker.css" rel="stylesheet">
+
+
+<!--  JS -->
 <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
- <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
-<link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+<script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+<script src="../assets/js/jquery-ui.multidatespicker.js"></script>
+
 <script src="../assets/js/bootstrap.js"></script>
 <script src="../assets/js/scripts.js"></script>
+
+
+
 <script>
 	$(function() {
 		$(".most-ocul").click(function() {
@@ -26,8 +36,9 @@
 				$(this).html("Ocultar");
 			}
 		})
-		
-		$( ".date-picker" ).datepicker();
+
+		$(".datepicker").multiDatesPicker();
+		$(".date-picker").datepicker();
 	});
 </script>
 
@@ -194,7 +205,7 @@
 												<label class="col-md-2 control-label" for="selectbasic">Data</label>
 												<div class="col-md-4">
 													<input type="text" placeholder="Data do curso"
-														class="form-control">.
+														class="form-control date-picker">.
 												</div>
 											</div>
 											<form class="form-horizontal">
@@ -317,13 +328,18 @@
 					</div>
 					<div class="form-group">
 						<div class="row">
-							<div class="col-sm-6">
-								<label class="control-label">Data maxima para inscrição</label> <input
-									type="text" class="form-control date-picker" name="" />
+							<div class="col-sm-4">
+								<label class="control-label">Periodo de Inscrição</label> <input
+									type="text" class="form-control datepicker" name="" />
 							</div>
 
-							<div class="col-sm-6">
-								<label class="control-label">Carga minima certificado</label> <input
+							<div class="col-sm-4">
+								<label class="control-label">Dias de Curso</label> <input type="text"
+									class="form-control datepicker" name="" />
+							</div>
+
+							<div class="col-sm-4">
+								<label class="control-label">Minimo para Certificado</label> <input
 									type="text" class="form-control" name="" />
 							</div>
 						</div>
