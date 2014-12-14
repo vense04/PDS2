@@ -60,7 +60,10 @@
 							class="profile-img foto"
 							src="assets/img/<?= $avatar ?>" style="max-width: 100px; max-height: 41px" /> <span class="caret"></span></a>
 						<ul class="dropdown-menu" role="menu">
-							<li><a href="#">Painel Administrativo</a></li>
+							<li><a href="#">Meus Cursos</a></li>
+							<li class="divider"></li>
+							<li><a href="#">Alterar Cadastro</a></li>
+							<li class="divider"></li>
 							<li class="divider"></li>
 							<li><a href="?log=out">Sair</a></li>
 						</ul></li>

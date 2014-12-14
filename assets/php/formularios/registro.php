@@ -31,7 +31,7 @@ if (!empty($_POST)) {
 		
 		/**
 		 * 
-		 * Agora é enviar o email com os dados com camarada, o link vai ser a url + $validaCadastro para desbloquear o camarada oks
+		 * Agora é enviar o email com os dados com camarada, o link vai ser a url + usuario=$username&validaCadastro=$validaCadastro para desbloquear o camarada oks
 		 * daí o vinícius monta uma tela para avisar que ele vai receber um email e a tela que mostra o cadastro desbloqueado oks
 		 * 
 		 */

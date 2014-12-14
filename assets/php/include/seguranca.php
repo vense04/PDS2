@@ -50,6 +50,15 @@ if (! isSet ( $_SESSION ['Usuario'] )) {
 					// Se sim, ativa o usuário
 					$UsuarioDao = new UsuarioDao();
 					$UsuarioDao->statusUsuario($registro ["username"], 1);
+					
+					// Cria a sessão, caso esteja tudo certo com o usuário
+					$_SESSION ['Usuario'] = $registro ["codUsuario"] . '+' . $registro ["nome"] . '+' . $registro ["tipoUsuario"] . '+' . $registro ["avatar"];
+					$codUsuario = $registro ["codUsuario"];
+					$tipoUsuario = $registro ["tipoUsuario"];
+					$nome = $registro ["nome"];
+					$avatar = $registro ["avatar"];
+					$logado = true;
+					
 				}
 				// Caso contrário redireciona para o index, com a msg de validção errada
 				else {
