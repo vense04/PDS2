@@ -20,5 +20,12 @@ if (!empty($_GET["email"])) {
 	}
 	
 }
+// Verifica se o CPF ou CNPJ existe na base de dados
+if (!empty($_GET["cpfCnpj"])) {
+	require_once "../../../dao/usuarioDao.class.php";
+	$UsuarioDao = new UsuarioDao();
+ 	$usuarios = $UsuarioDao->verificaUsuario($_GET["cpfCnpj"]);
+ 	print $usuarios->rowCount(); 
+}
 
 ?>

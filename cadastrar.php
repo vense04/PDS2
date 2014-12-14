@@ -28,12 +28,14 @@ include_once 'header.php';
 						<div class="row">
 							<div class="col-md-4">
 								<label class="control-label">RG</label> <input type="text"
-									class="form-control" name="rg" />
+									class="form-control" name="rg" /> <span id="spanRg"
+									class="text-red"></span>
 							</div>
 
 							<div class="col-md-4">
 								<label class="control-label">CPF/CNPJ</label> <input type="text"
-									class="form-control" name="cpf" />
+									class="form-control" name="cpfCnpj" /> <span id="spanCpfCnpj"
+									class="text-red"></span>
 							</div>
 						</div>
 					</div>
@@ -78,7 +80,7 @@ include_once 'header.php';
 						<div class=" col-md-8">
 							<div class="pull-right">
 								<button type="reset" class="btn btn-theme">Cancelar</button>
-								<button type="submit" class="btn btn-theme">Enviar</button>
+								<button id="submit" type="submit" disabled="disabled" class="btn btn-theme">Enviar</button>
 							</div>
 						</div>
 					</div>
@@ -88,6 +90,7 @@ include_once 'header.php';
 	</div>
 </div>
 <script src="assets/js/app/registro.js"></script>
+<script src="assets/js/jquery.mask.min.js"></script>
 <?php
 include_once 'footer.php';
 ?>

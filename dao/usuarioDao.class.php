@@ -51,10 +51,14 @@ public function getLogin($usuario) {
 				
 			$stmt = $this->bancoDeDados->prepare( "SELECT
 														U.username
+														,	U.cpfCnpj
 													FROM Usuario U
 													WHERE
-														U.username = ?");
+														U.username = ?
+													OR
+														U.cpfCnpj = ?");
 			$stmt->bindValue(1, $usuario);
+			$stmt->bindValue(2, $usuario);
 			$stmt->execute();
 			$this->bancoDeDados = null;
 			return $stmt;

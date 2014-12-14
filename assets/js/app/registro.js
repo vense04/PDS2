@@ -3,12 +3,50 @@ $(function() {
 	
 	// inputs para validar
 	var campoUserName = $("input[name='username']");
+	var campoRg = $("input[name='rg']");
+	var campoCpfCnpj = $("input[name='cpfCnpj']");
 	var campoEmail = $("input[name='email']");
 	var campoSenha = $("input[name='senha']");
 	var campoReSenha = $("input[name='re-senha']");
 	
 	// Campos que precisam ser validados
-	var userValido = false, emailValido = false, resenhaValido = false;
+	var userValido = false, emailValido = false, resenhaValido = false, cpfCnpjValido = false;
+	
+	//Aplicando máscaras
+	campoRg.mask("00.000.000/AAAAA", {placeholder: "00.000.000/SSPMG"});
+	
+	// Valida CPF ou CNPJ
+	campoCpfCnpj.focusout(function() {
+        var cpfcnpj, element;
+        element = $(this);
+        element.unmask();
+        cpfcnpj = element.val().replace(/\D/g, '');
+        if (cpfcnpj.length > 11) {
+            element.mask("99.999.999/999?9-99");
+        } else {
+            element.mask("999.999.999-99?9-99");
+        }
+        element.val(element.val().replace('?', ''));
+        $.get(
+				"assets/php/valida/verifica.php?cpfCnpj=" + cpfcnpj,
+				function(dados, status){
+					if (parseInt(dados) == 0) {
+						original(campoCpfCnpj, $("#spanCpfCnpj"));
+						cpfCnpjValido = true;
+					}
+					else {
+						campoCpfCnpj.css({"background-color" : "#FF0000", "color" : "white"});
+						if (campoCpfCnpj.val() == "") {
+							$("#spanCpfCnpj").html("<h5>O campo CPF/CNPJ não pode ficar vazio.</h5>");
+						}
+						else {
+							$("#spanCpfCnpj").html("<h5>Já existe um usuário com esse CPF/CNPJ.</h5>");
+						}
+						cpfCnpjValido = false;
+					}
+				}
+			);
+    }).trigger('focusout');
 	
 	// Verifica a existência do usuário no sistema
 	campoUserName.keyup(function() {
@@ -72,8 +110,9 @@ $(function() {
 	$("input").blur(function() {
 		if (userValido &&
 			emailValido &&
-			resenhaValido) {
-			$("button").removeAttr("disabled");
+			resenhaValido &&
+			cpfCnpjValido) {
+			$("#submit").removeAttr("disabled");
 		}
 	});
 	
