@@ -8,24 +8,34 @@ if (!empty($_POST)) {
 	$nome = (isSet($_POST["nome"])) ? diferenteVazio($_POST["nome"]) : false;
 	$email = (isSet($_POST["email"])) ? diferenteVazio($_POST["email"]) : false;
 	$username = (isSet($_POST["username"])) ? diferenteVazio($_POST["username"]) : false;
+	$rg = (isSet($_POST["rg"])) ? diferenteVazio($_POST["rg"]) : false;
+	$cpfCnpj = (isSet($_POST["cpfCnpj"])) ? diferenteVazio($_POST["cpfCnpj"]) : false;
 	$senha = (isSet($_POST["senha"])) ? diferenteVazio($_POST["senha"]) : false;
 	$reSenha = (isSet($_POST["re-senha"])) ? diferenteVazio($_POST["re-senha"]) : false;
 	// Caso a senha seja diferente do reperir senha
 	$senha = ($senha == $reSenha) ? $senha : false;
 	//Valida os campos e cadastra o caboclo caso esteja tudo oks
-	if ($nome && $email && $username && $senha) {
+	if ($nome && $email && $username && $senha && $cpfCnpj) {
 		include_once '../dao/usuarioDao.class.php';
 		include_once '../dao/contatoDao.class.php';
 		// Se o array $_FILES não estiver vazio realiza o upload e salva a url da imagem, caso contrário deixa o campo vazio
-		$avatar = (!empty($_FILES["avatar"])) ? uploadAvatar($_FILES["avatar"]) : "../img/avatar.jpg";
+		$avatar = str_replace("../../img/", "", (!empty($_FILES["avatar"])) ? uploadAvatar($_FILES["avatar"]) : "../../img/avatar.jpg");
 		$usuarioDao = new UsuarioDao();
 		// Url para desbloqueio
 		$validaCadastro = md5_base64(md5_base64($senha) . $hash . "validador de senha") . $hash;
 		// Insere o usuário e guarda o retorno, o codUsuario
-		$codUsuario = $usuarioDao->registro($nome, md5_base64($senha) . $hash, $validaCadastro, $username, 0, $avatar);
+		$codUsuario = $usuarioDao->registro($nome, md5_base64($senha) . $hash, $validaCadastro, $username, 0, $avatar, $rg, $cpfCnpj);
 		$contatoDao = new ContatoDao();
 		//Cadastra o E-Mail do caboclo, campo tipoContato (E-Mail = 1)
 		$contatoDao->insereContato($_POST["email"], 1, $codUsuario);
+		
+		/**
+		 * 
+		 * Agora é enviar o email com os dados com camarada, o link vai ser a url + $validaCadastro para desbloquear o camarada oks
+		 * daí o vinícius monta uma tela para avisar que ele vai receber um email e a tela que mostra o cadastro desbloqueado oks
+		 * 
+		 */
+		
 	}
 }
 
@@ -54,7 +64,7 @@ function uploadAvatar($avatar) {
 		$upload->height = 250; 
 		// Exibimos a mensagem com sucesso ou erro retornada pela função salvar. 
 		//Se for sucesso, a mensagem também é um link para a imagem enviada. 
-		return $upload->salvar("../img/", $avatar); 
+		return $upload->salvar("../../img/", $avatar); 
 }
 
 ?>

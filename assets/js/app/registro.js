@@ -116,6 +116,17 @@ $(function() {
 		}
 	});
 	
+//	$("#submit").click(function() {
+//		$.post(
+//			"assets/php/formularios/registro.php"
+//			,	{usuario : JSON.stringify($("#cadastroUsuario").serializeArray())}
+//			,	function(dados, status) {
+//				alert(dados);
+//				var retorno = JSON.parse(dados); 
+//			}
+//		)
+//	});
+	
 	//Filtra apenas imagens dos tipos desejados
 	$("#avatar").change(function() {
 		if ($(this).val().toLowerCase().indexOf(".jpg") > 0 ||

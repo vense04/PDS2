@@ -6,7 +6,7 @@ include_once 'header.php';
 		<div class="row">
 			<h2>Cadastre-se</h2>
 			<div class="col-md-9">
-				<form class="form-horizontal" role="form">
+				<form class="form-horizontal" role="form" action="assets/php/formularios/registro.php" method="post" enctype="multipart/form-data">
 					<div class="form-group container">
 						<div class="row">
 							<div class="col-md-8">

@@ -100,9 +100,11 @@ public function getLogin($usuario) {
 	 * @param String $username
 	 * @param Integer $tipoUsuario
 	 * @param String $avatar
+	 * @param String $rg
+	 * @param String $cpfCnpj
 	 * @return Integer (codUsuario)
 	 */
-	public function registro($nome, $senha, $validaCadastro, $username, $tipoUsuario, $avatar) {
+	public function registro($nome, $senha, $validaCadastro, $username, $tipoUsuario, $avatar, $rg, $cpfCnpj) {
 		try {
 				
 			$stmt = $this->bancoDeDados->prepare( "INSERT INTO Usuario (
@@ -112,8 +114,12 @@ public function getLogin($usuario) {
 														,	username
 														,	nome
 														, 	tipoUsuario
+														,	rg
+														,	cpfCnpj
 													) values (
 														?
+														,	?
+														,	?
 														,	?
 														,	?
 														,	?
@@ -125,6 +131,8 @@ public function getLogin($usuario) {
 			$stmt->bindValue(4, $username);
 			$stmt->bindValue(5, $nome);
 			$stmt->bindValue(6, $tipoUsuario);
+			$stmt->bindValue(7, $rg);
+			$stmt->bindValue(8, $cpfCnpj);
 			$stmt->execute();
 			$codUsuario = $this->bancoDeDados->lastInsertId();
 			$this->bancoDeDados = null;
