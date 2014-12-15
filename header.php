@@ -59,14 +59,9 @@
 					<li class="dropdown"><a href="#" class="dropdown-toggle"
 						data-toggle="dropdown" role="button" aria-expanded="false"> <img
 							class="profile-img foto"
-							src="assets/avatar/<?= $avatar ?>" style="max-width: 100px; max-height: 41px" /> <span class="caret"></span></a>
+							src="assets/avatar/<?= $avatar ?>" width="40" height="40" /> <span class="caret"></span></a>
 						<ul class="dropdown-menu" role="menu">
-							<li><a href="#">Meus Cursos</a></li>
-							<li class="divider"></li>
-							<li><a href="cadastrarCurso.php">Cadastrar Curso</a></li>
-							<li class="divider"></li>
-							<li><a href="#">Alterar Cadastro</a></li>
-							<li class="divider"></li>
+							<li><a href="adm">Admin</a></li>
 							<li class="divider"></li>
 							<li><a href="?log=out">Sair</a></li>
 						</ul></li>
