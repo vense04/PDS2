@@ -15,6 +15,7 @@ include_once 'header.php';
 			$cursos = new CursoDao ();
 			$stmt = $cursos->selecionaCursos ();
 			
+			
 			$i = 0;
 			while ( $linha = $stmt->fetch () ) {
 				echo '<div class="col-md-4 col-sm-6 portfolio-item">';

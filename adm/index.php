@@ -1,7 +1,7 @@
-<?php 
-	// Segurança do sistema
-	include_once 'assets/php/include/seguranca.php';
-	
+<?php
+// Segurança do sistema
+include_once 'assets/php/include/seguranca.php';
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -10,14 +10,15 @@
 <meta charset="utf-8">
 <title>Administrator</title>
 <meta name="generator" content="Bootply" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, maximum-scale=1">
 
 <!-- CSS -->
-<link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+<link rel="stylesheet"
+	href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
 <link href="../assets/css/bootstrap.css" rel="stylesheet">
 <link href="../assets/css/styles.css" rel="stylesheet">
 
-<link href="../assets/css/daterangepicker.css" rel="stylesheet">
 
 
 <!--  JS -->
@@ -87,21 +88,19 @@
 								</div>
 							</form>
 							<ul class="nav navbar-nav">
-								<li><a href="../adm/index.html"><i class="glyphicon glyphicon-home"></i>
-										Home</a></li>
-								<li><a href="#cadastroModal" role="button"
-									data-toggle="modal"><i class="glyphicon glyphicon-plus"></i>
-										Cadastrar Curso</a></li>
-								<li><a href="#atualizaModal" role="button"
-									data-toggle="modal"><i class="glyphicon glyphicon-refresh"></i>
-										Atualiza Dados</a></li>
+								<li><a href="../adm/index.php"><i
+										class="glyphicon glyphicon-home"></i> Home</a></li>
+								<li><a href="#cadastroModal" role="button" data-toggle="modal"><i
+										class="glyphicon glyphicon-plus"></i> Cadastrar Curso</a></li>
+								<li><a href="#atualizaModal" role="button" data-toggle="modal"><i
+										class="glyphicon glyphicon-refresh"></i> Atualiza Dados</a></li>
 								<!-- 								<li><a href="#"><span class="badge">badge</span></a></li> -->
 							</ul>
 							<ul class="nav navbar-nav navbar-right">
 								<li class="dropdown"><a href="#" class="dropdown-toggle"
 									data-toggle="dropdown"><i class="glyphicon glyphicon-user"></i></a>
 									<ul class="dropdown-menu">
-										<li><a href="">Sair</a></li>
+										<li><a href="/PDS2/index.php">Sair</a></li>
 									</ul></li>
 							</ul>
 						</nav>
@@ -157,17 +156,13 @@
 														<tbody>
 															<tr>
 																<td>Trout</td>
-																<td><a href="#"><span
-																		class="glyphicon glyphicon-inbox"></span></a></td>
-																<td><a href="#"><span
-																		class="glyphicon glyphicon-print"></span></a></td>
+																<td><a href="#"><span class="glyphicon glyphicon-inbox"></span></a></td>
+																<td><a href="#"><span class="glyphicon glyphicon-print"></span></a></td>
 															</tr>
 															<tr>
 																<td>Rodrigo Viado</td>
-																<td><a href="#"><span
-																		class="glyphicon glyphicon-inbox"></span></a></td>
-																<td><a href="#"><span
-																		class="glyphicon glyphicon-print"></span></a></td>
+																<td><a href="#"><span class="glyphicon glyphicon-inbox"></span></a></td>
+																<td><a href="#"><span class="glyphicon glyphicon-print"></span></a></td>
 															</tr>
 														</tbody>
 													</table>
@@ -180,13 +175,13 @@
 										<div class="panel-heading">
 											<h4>What Is Bootstrap?</h4>
 										</div>
-										<div class="panel-body">Bootstrap is front end
-											frameworkto build custom web applications that are fast,
-											responsive &amp; intuitive. It consist of CSS and HTML for
-											typography, forms, buttons, tables, grids, and navigation
-											along with custom-built jQuery plug-ins and support for
-											responsive layouts. With dozens of reusable components for
-											navigation, pagination, labels, alerts etc..</div>
+										<div class="panel-body">Bootstrap is front end frameworkto
+											build custom web applications that are fast, responsive &amp;
+											intuitive. It consist of CSS and HTML for typography, forms,
+											buttons, tables, grids, and navigation along with
+											custom-built jQuery plug-ins and support for responsive
+											layouts. With dozens of reusable components for navigation,
+											pagination, labels, alerts etc..</div>
 									</div>
 								</div>
 
@@ -228,6 +223,8 @@
 																value="1"></td>
 														</tr>
 														<tr>
+														
+														
 														<tr>
 															<td>Trout</td>
 															<td><input type="checkbox" name="checkboxes"
@@ -269,8 +266,8 @@
 							<hr>
 
 							<h4 class="text-center">
-								<a href="http://bootply.com/96266" target="ext">Download
-									this Template @Bootply</a>
+								<a href="http://bootply.com/96266" target="ext">Download this
+									Template @Bootply</a>
 							</h4>
 
 							<hr>
@@ -298,8 +295,8 @@
 					<h1>Cadastrar Curso</h1>
 				</div>
 
-				<form id="">
-					<div class="form-group">
+				<form id="cadastra-curso" action="assets/php/formularios/registroCurso.php" method="post">
+					<div class="form-group" id="">
 						<div class="row">
 							<div class="col-sm-8">
 								<label class="control-label">Nome</label> <input type="text"
@@ -317,17 +314,17 @@
 						<div class="row">
 							<div class="col-sm-4">
 								<label class="control-label">Data Inicio</label> <input
-									type="text" class="form-control date-picker" name="" />
+									type="text" class="form-control date-picker" name="dataInicio" />
 							</div>
 
 							<div class="col-sm-4">
 								<label class="control-label">Data Fim</label> <input type="text"
-									class="form-control date-picker" name="" />
+									class="form-control date-picker" name="dataFim" />
 							</div>
 
 							<div class="col-sm-4">
 								<label class="control-label">Carga horaria</label> <input
-									type="text" class="form-control" name="" />
+									type="text" class="form-control" name="caragaHoraria" />
 							</div>
 						</div>
 					</div>
@@ -335,30 +332,31 @@
 						<div class="row">
 							<div class="col-sm-4">
 								<label class="control-label">Periodo de Inscrição</label> <input
-									type="text" class="form-control datepicker" name="" />
+									type="text" class="form-control periodo" name="periodo" />
 							</div>
 
 							<div class="col-sm-4">
-								<label class="control-label">Dias de Curso</label> <input type="text"
-									class="form-control datepicker" name="" />
+								<label class="control-label">Dias de Curso</label> <input
+									type="text" class="form-control dias" name="dias" />
 							</div>
 
 							<div class="col-sm-4">
-								<label class="control-label">Minimo para Certificado</label> <input
-									type="text" class="form-control" name="" />
+								<label class="control-label">Minimo para Certificado</label> 
+								<select class="form-control" name="minimoCertificado">
+									<option value="50">50%</option>
+									<option value="60">60%</option>
+									<option value="70">70%</option>
+									<option value="80">80%</option>
+									<option value="90">90%</option>
+								</select>
 							</div>
 						</div>
 					</div>
 					<div class="form-group">
 						<div class="row">
-							<div class="col-sm-6">
+							<div class="col-sm-8">
 								<label class="control-label">Foto</label> <input type="file"
-									class="form-control" name="" />
-							</div>
-
-							<div class="col-sm-6">
-								<label class="control-label">Arquivo</label> <input type="file"
-									class="form-control" name="" />
+									class="form-control" name="avatar" />
 							</div>
 						</div>
 					</div>
@@ -373,11 +371,11 @@
 						<div class="row">
 							<div class="col-sm-4 selectContainer">
 								<label class="control-label">CEP</label> <input type="text"
-									class="form-control" name="" />
+									class="form-control" name="cep" id="cep"/>
 							</div>
 							<div class="col-sm-8">
 								<label class="control-label">Rua/Av.</label> <input type="text"
-									class="form-control" name="" />
+									class="form-control" name="logradouro" id="rua" readonly="readonly"/>
 							</div>
 						</div>
 					</div>
@@ -386,28 +384,29 @@
 						<div class="row">
 							<div class="col-sm-4">
 								<label class="control-label">Numero</label> <input type="text"
-									class="form-control" name="" />
+									class="form-control" name="numero" />
 							</div>
 
 							<div class="col-sm-4">
 								<label class="control-label">Bairro</label> <input type="text"
-									class="form-control" name="" />
+									class="form-control" name="bairro" id="bairro" readonly="readonly" />
 							</div>
 
 							<div class="col-sm-4">
-								<label class="control-label">Cidade</label> <input type="text"
-									class="form-control" name="" />
+								<label class="control-label">Cidade</label> 
+								<input type="text" class="form-control" name="cidade" id="cidade" readonly="readonly" />
+							</div>
+							<div class="col-sm-4">
+								 <input type="hidden" class="form-control" name="estado" id="uf"/>
 							</div>
 						</div>
 					</div>
-
-
 					<div class="modal-footer">
 						<div class="form-group">
 							<div class="col-sm-offset-2 col-sm-8">
 								<div class="pull-right">
-									<button type="reset" class="btn btn-theme">Cancelar</button>
-									<button type="submit" class="btn btn-theme">Enviar</button>
+									<button type="reset" class="btn btn-theme">Limpar</button>
+									<button type="submit" id="submit" class="btn btn-theme">Enviar</button>
 								</div>
 							</div>
 						</div>
