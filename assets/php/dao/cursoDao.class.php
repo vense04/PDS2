@@ -77,5 +77,77 @@ class CursoDao {
 		}
 	}
 	
+	/**
+	 * Lista todos os dados dos cursos
+	 * 
+	 * @return ResultSet da consulta
+	 */
+	
+	public function selecionaCursos() {
+		try {
+	
+			$stmt = $this->bancoDeDados->prepare( "SELECT
+													C.avatar
+													,	C.codCurso
+													,	C.codMinistrante
+													,	C.nome
+													,	C.tema
+													,	U.nome AS Ministrante
+												FROM Curso C
+												INNER JOIN Usuario U ON
+													C.codMinistrante = U.codUsuario");
+	
+			$stmt->execute();
+			$this->bancoDeDados = null;
+	
+			//Retorna o resultset o/
+			return $stmt;
+				
+		} catch ( PDOException $ex ) {
+			echo "Erro: " . $ex->getMessage ();
+		}
+	}
+	
+	/**
+	 * Retorna um ResultSet com os dados do curso selecionado
+	 * 
+	 * @param Integer $codCurso
+	 * @return ResultSet da consulta
+	 */
+	
+	public function selecionaCurso($codCurso) {
+		try {
+	
+			$stmt = $this->bancoDeDados->prepare( "SELECT
+													C.avatar
+													,	C.cargaHoraria
+													,	C.codCurso
+													,	C.codMinistrante
+													,	C.detalhes
+													,	C.fim
+													,	C.inicio
+													,	C.inscricaoFim
+													,	C.inscricaoInicio
+													,	C.minimoCertificado
+													,	C.nome
+													,	C.tema
+													,	U.nome AS Ministrante
+												FROM Curso C
+												INNER JOIN Usuario U ON
+													C.codMinistrante = U.codUsuario
+												WHERE
+													C.codCurso = ?");
+			$stmt->bindValue(1, $codCurso);
+			$stmt->execute();
+			$this->bancoDeDados = null;
+	
+			//Retorna o resultset o/
+			return $stmt;
+	
+		} catch ( PDOException $ex ) {
+			echo "Erro: " . $ex->getMessage ();
+		}
+	}
+	
 }
 ?>
