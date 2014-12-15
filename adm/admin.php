@@ -1,3 +1,8 @@
+<?php 
+	// Segurança do sistema
+	include_once 'assets/php/include/seguranca.php';
+	
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -82,7 +87,7 @@
 								</div>
 							</form>
 							<ul class="nav navbar-nav">
-								<li><a href="#"><i class="glyphicon glyphicon-home"></i>
+								<li><a href="../adm/index.html"><i class="glyphicon glyphicon-home"></i>
 										Home</a></li>
 								<li><a href="#cadastroModal" role="button"
 									data-toggle="modal"><i class="glyphicon glyphicon-plus"></i>
