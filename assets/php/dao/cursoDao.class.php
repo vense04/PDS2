@@ -4,7 +4,7 @@ class CursoDao {
 	// irá receber uma conexão
 	public $bancoDeDados = null;
 	// construtor
-	public function ContatoDao() {
+	public function CursoDao() {
 		// retorna a conexão com o banco de dados Utilizando o PDO
 		include_once 'conexao.class.php';
 		

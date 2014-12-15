@@ -19,7 +19,7 @@ if (!empty($_POST)) {
 		include_once '../dao/usuarioDao.class.php';
 		include_once '../dao/contatoDao.class.php';
 		// Se o array $_FILES não estiver vazio realiza o upload e salva a url da imagem, caso contrário deixa o campo vazio
-		$avatar = str_replace("../../img/", "", (!empty($_FILES["avatar"])) ? uploadAvatar($_FILES["avatar"]) : "../../img/avatar.jpg");
+		$avatar = str_replace("../../avatar/", "", (!empty($_FILES["avatar"])) ? uploadAvatar($_FILES["avatar"]) : "../../avatar/avatar.jpg");
 		$usuarioDao = new UsuarioDao();
 		// Url para desbloqueio
 		$validaCadastro = md5_base64(md5_base64($senha) . $hash . "validador de senha") . $hash;
@@ -64,7 +64,7 @@ function uploadAvatar($avatar) {
 		$upload->height = 250; 
 		// Exibimos a mensagem com sucesso ou erro retornada pela função salvar. 
 		//Se for sucesso, a mensagem também é um link para a imagem enviada. 
-		return $upload->salvar("../../img/", $avatar); 
+		return $upload->salvar("../../avatar/", $avatar); 
 }
 
 ?>
