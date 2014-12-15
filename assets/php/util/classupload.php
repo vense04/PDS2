@@ -75,6 +75,7 @@
 			$file['name'] = date("YmdHisu") . "." . $extension;  //Line 34
 			
 			
+			
 			// Atribuímos caminho e nome da imagem a uma variável apenas 
 			$uploadfile = $caminho.$file['name'];
 
