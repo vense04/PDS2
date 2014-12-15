@@ -26,7 +26,7 @@ class CursoDao {
 	 * @return Integer codCurso
 	 */
 	
-	public function insereCurso($detalhes, $minimoCertificado, $avatar, $codMinistrante, $tema, $nome, $inicio, $cargaHoraria, $fim) {
+	public function insereCurso($detalhes, $minimoCertificado, $avatar, $codMinistrante, $tema, $nome, $inicio, $cargaHoraria, $fim, $inscricaoInicio, $inscricaoFim) {
 		try {
 				
 			$stmt = $this->bancoDeDados->prepare( "INSERT INTO Curso ( 
@@ -38,7 +38,9 @@ class CursoDao {
 															, 	nome
 															, 	inicio
 															, 	cargaHoraria
-															, 	fim ) 
+															, 	fim
+															,	inscricaoInicio
+															,	inscricaoFim ) 
 													VALUES ( 
 															?
 															, 	?
@@ -48,7 +50,9 @@ class CursoDao {
 															, 	?
 															, 	?
 															, 	?
-															, 	?)");
+															, 	?
+															,	?
+															,	?)");
 				
 			$stmt->bindValue(1, $detalhes);
 			$stmt->bindValue(2, $minimoCertificado);
@@ -59,6 +63,8 @@ class CursoDao {
 			$stmt->bindValue(7, $inicio);
 			$stmt->bindValue(8, $cargaHoraria);
 			$stmt->bindValue(9, $fim);
+			$stmt->bindValue(10, $inscricaoInicio);
+			$stmt->bindValue(11, $inscricaoFim);
 			$stmt->execute();
 			$codCurso = $this->bancoDeDados->lastInsertId();
 			$this->bancoDeDados = null;
