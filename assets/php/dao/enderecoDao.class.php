@@ -47,14 +47,14 @@ class EnderecoDao {
 															, 	?
 															, 	?)");
 				
-			$stmt->bindValue(1, $complemento);
-			$stmt->bindValue(2, $logradouro);
-			$stmt->bindValue(3, $codUsuario);
-			$stmt->bindValue(4, $codCurso);
-			$stmt->bindValue(5, $cep);
-			$stmt->bindValue(6, $cidade);
-			$stmt->bindValue(7, $estado);
-			$stmt->bindValue(8, $numero);
+			$stmt->bindValue(1, $detalhes);
+			$stmt->bindValue(2, $minimoCertificado);
+			$stmt->bindValue(3, $avatar);
+			$stmt->bindValue(4, $codMinistrante);
+			$stmt->bindValue(5, $tema);
+			$stmt->bindValue(6, $nome);
+			$stmt->bindValue(7, $inicio);
+			$stmt->bindValue(8, $cargaHoraria);
 			$stmt->execute();
 			$codEndereco = $this->bancoDeDados->lastInsertId();
 			$this->bancoDeDados = null;
