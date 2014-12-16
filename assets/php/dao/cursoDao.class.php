@@ -26,14 +26,13 @@ class CursoDao {
 	 * @return Integer codCurso
 	 */
 	
-	public function insereCurso($detalhes, $minimoCertificado, $avatar, $avatarOriginal, $codMinistrante, $tema, $nome, $inicio, $cargaHoraria, $fim, $inscricaoInicio, $inscricaoFim) {
+	public function insereCurso($detalhes, $minimoCertificado, $avatar, $codMinistrante, $tema, $nome, $inicio, $cargaHoraria, $fim, $inscricaoInicio, $inscricaoFim) {
 		try {
 				
 			$stmt = $this->bancoDeDados->prepare( "INSERT INTO Curso ( 
 															detalhes
 															, 	minimoCertificado
 															, 	avatar
-															,	avatarOriginal
 															, 	codMinistrante
 															, 	tema
 															, 	nome
@@ -59,15 +58,14 @@ class CursoDao {
 			$stmt->bindValue(1, $detalhes);
 			$stmt->bindValue(2, $minimoCertificado);
 			$stmt->bindValue(3, $avatar);
-			$stmt->bindValue(4, $avatarOriginal);
-			$stmt->bindValue(5, $codMinistrante);
-			$stmt->bindValue(6, $tema);
-			$stmt->bindValue(7, $nome);
-			$stmt->bindValue(8, $inicio);
-			$stmt->bindValue(9, $cargaHoraria);
-			$stmt->bindValue(10, $fim);
-			$stmt->bindValue(11, $inscricaoInicio);
-			$stmt->bindValue(12, $inscricaoFim);
+			$stmt->bindValue(4, $codMinistrante);
+			$stmt->bindValue(5, $tema);
+			$stmt->bindValue(6, $nome);
+			$stmt->bindValue(7, $inicio);
+			$stmt->bindValue(8, $cargaHoraria);
+			$stmt->bindValue(9, $fim);
+			$stmt->bindValue(10, $inscricaoInicio);
+			$stmt->bindValue(11, $inscricaoFim);
 			$stmt->execute();
 			$codCurso = $this->bancoDeDados->lastInsertId();
 			$this->bancoDeDados = null;
@@ -104,8 +102,7 @@ class CursoDao {
 													,	C.nome
 													,	C.tema
 													,	U.nome AS Ministrante
-												FROM Curso C
-												INNER JOIN Usuario U ON
+												FROM Curso C,Usuario U WHERE
 													C.codMinistrante = U.codUsuario");
 	
 			$stmt->execute();

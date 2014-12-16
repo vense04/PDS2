@@ -28,9 +28,8 @@ if (!empty($_POST)) {
 		include_once '../dao/cursoDao.class.php';
 		// Se o array $_FILES não estiver vazio realiza o upload e salva a url da imagem, caso contrário deixa o campo vazio
 		$avatar = str_replace("../../avatar/", "", (!empty($_FILES["avatar"])) ? uploadAvatar($_FILES["avatar"]) : "../../avatar/avatar.jpg");
-		$avatarOriginal = str_replace("../../avatar/", "", (!empty($_FILES["avatar"])) ? uploadAvatarOriginal($_FILES["avatar"]) : "../../avatar/avatar.jpg");
 		$cursoDao = new CursoDao();
-		$codCurso = $cursoDao->insereCurso($descricao, $minimoCertificado, $avatar, $avatarOriginal, $codUsuario, $tema, $nome, converteData($dataInicio), $cargaHoraria, converteData($dataFim), converteData($periodo[0]), converteData($periodo[1]));
+		$codCurso = $cursoDao->insereCurso($descricao, $minimoCertificado, $avatar, $codUsuario, $tema, $nome, converteData($dataInicio), $cargaHoraria, converteData($dataFim), converteData($periodo[0]), converteData($periodo[1]));
 		
 		
 		include_once '../dao/enderecoDao.class.php';
