@@ -1,3 +1,7 @@
+<?php 
+	// Segurança do sistema
+	include_once '../assets/php/include/seguranca.php';
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -11,9 +15,6 @@
 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
 <link href="../assets/css/bootstrap.css" rel="stylesheet">
 <link href="../assets/css/styles.css" rel="stylesheet">
-
-<link href="../assets/css/daterangepicker.css" rel="stylesheet">
-
 
 <!--  JS -->
 <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
@@ -37,8 +38,6 @@
 			}
 		})
 
-		$(".datepicker").multiDatesPicker();
-		$(".date-picker").datepicker();
 	});
 </script>
 
@@ -51,6 +50,9 @@
 </head>
 <body>
 	<div class="wrapper">
+	<?php  if ($logado) { ?>
+		<input type="hidden" id="cod" value="<?php echo $codUsuario?>">
+	<?php } ?>
 		<div class="box">
 			<div class="row row-offcanvas row-offcanvas-left">
 				<!-- main right col -->
@@ -92,13 +94,15 @@
 										Atualiza Dados</a></li>
 								<!-- 								<li><a href="#"><span class="badge">badge</span></a></li> -->
 							</ul>
+							
 							<ul class="nav navbar-nav navbar-right">
 								<li class="dropdown"><a href="#" class="dropdown-toggle"
-									data-toggle="dropdown"><i class="glyphicon glyphicon-user"></i></a>
+									data-toggle="dropdown"><i class="glyphicon glyphicon-arrow-left"></i></a>
 									<ul class="dropdown-menu">
-										<li><a href="">Sair</a></li>
+										<li><a href="../index.php">Voltar ao Site</a></li>
 									</ul></li>
 							</ul>
+					
 						</nav>
 					</div>
 					<!-- /top nav -->
@@ -137,9 +141,6 @@
 										<div class="panel-body">
 											<div id="cursos-concluidos" class="collapse">
 												<div class="panel-body">
-													<input type="text" class="form-control"
-														id="dev-table-filter" data-action="filter"
-														data-filters="#dev-table" placeholder="Buscar por curso" />
 
 													<table class="table table-hover" id="dev-table">
 														<thead>
@@ -293,7 +294,7 @@
 					<h1>Cadastrar Curso</h1>
 				</div>
 
-				<form id="">
+				<form class="" role="form" action="../assets/php/formularios/registroCurso.php" method="post" enctype="multipart/form-data">
 					<div class="form-group">
 						<div class="row">
 							<div class="col-sm-8">
@@ -312,17 +313,17 @@
 						<div class="row">
 							<div class="col-sm-4">
 								<label class="control-label">Data Inicio</label> <input
-									type="text" class="form-control date-picker" name="" />
+									type="text" class="form-control date-picker" name="dataInicio" />
 							</div>
 
 							<div class="col-sm-4">
 								<label class="control-label">Data Fim</label> <input type="text"
-									class="form-control date-picker" name="" />
+									class="form-control date-picker" name="dataFim" />
 							</div>
 
 							<div class="col-sm-4">
 								<label class="control-label">Carga horaria</label> <input
-									type="text" class="form-control" name="" />
+									type="text" class="form-control" name="cargaHoraria" />
 							</div>
 						</div>
 					</div>
@@ -330,17 +331,23 @@
 						<div class="row">
 							<div class="col-sm-4">
 								<label class="control-label">Periodo de Inscrição</label> <input
-									type="text" class="form-control datepicker" name="" />
+									type="text" class="form-control  periodo" name="periodo" />
 							</div>
 
 							<div class="col-sm-4">
 								<label class="control-label">Dias de Curso</label> <input type="text"
-									class="form-control datepicker" name="" />
+									class="form-control  dias" name="dias" />
 							</div>
 
 							<div class="col-sm-4">
-								<label class="control-label">Minimo para Certificado</label> <input
-									type="text" class="form-control" name="" />
+								<label class="control-label">Minimo para Certificado</label> 
+								<select class="form-control" name="minimoCertificado">
+									<option value="50">50%</option>
+									<option value="60">60%</option>
+									<option value="70">70%</option>
+									<option value="80">80%</option>
+									<option value="90">90%</option>
+								</select>
 							</div>
 						</div>
 					</div>
@@ -348,19 +355,19 @@
 						<div class="row">
 							<div class="col-sm-6">
 								<label class="control-label">Foto</label> <input type="file"
-									class="form-control" name="" />
+									class="form-control" name="avatar" />
 							</div>
 
-							<div class="col-sm-6">
-								<label class="control-label">Arquivo</label> <input type="file"
-									class="form-control" name="" />
-							</div>
+<!-- 							<div class="col-sm-6"> -->
+<!-- 								<label class="control-label">Arquivo</label> <input type="file" -->
+<!-- 									class="form-control" name="" /> -->
+<!-- 							</div> -->
 						</div>
 					</div>
 
 					<div class="form-group" style="margin-left: 18px">
 						<label class="control-label">Descrição</label>
-						<textarea class="form-control" name="review" rows="10"
+						<textarea class="form-control" name="descricao" rows="10"
 							style="width: 98%; height: 80px"></textarea>
 					</div>
 
@@ -368,11 +375,11 @@
 						<div class="row">
 							<div class="col-sm-4 selectContainer">
 								<label class="control-label">CEP</label> <input type="text"
-									class="form-control" name="" />
+									class="form-control" name="cep" id="cep" />
 							</div>
 							<div class="col-sm-8">
 								<label class="control-label">Rua/Av.</label> <input type="text"
-									class="form-control" name="" />
+									class="form-control" name="logradouro" id="rua"/>
 							</div>
 						</div>
 					</div>
@@ -381,18 +388,21 @@
 						<div class="row">
 							<div class="col-sm-4">
 								<label class="control-label">Numero</label> <input type="text"
-									class="form-control" name="" />
+									class="form-control" name="numero" />
 							</div>
 
 							<div class="col-sm-4">
 								<label class="control-label">Bairro</label> <input type="text"
-									class="form-control" name="" />
+									class="form-control" name="bairro" id="bairro" />
 							</div>
 
 							<div class="col-sm-4">
 								<label class="control-label">Cidade</label> <input type="text"
-									class="form-control" name="" />
+									class="form-control" name="cidade" id="cidade"/>
+									<input type="hidden"
+									class="form-control" name="estado" id="uf"/>
 							</div>
+							
 						</div>
 					</div>
 

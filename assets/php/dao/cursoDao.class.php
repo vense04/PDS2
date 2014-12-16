@@ -156,5 +156,32 @@ class CursoDao {
 		}
 	}
 	
+	
+	/**
+	 * Retorna um ResultSet com os cursos do usuario selecionado
+	 *
+	 * @param Integer $cod
+	 * @return ResultSet da consulta
+	 */
+	
+	public function selecionaCursoUsuario($cod) {
+		try {
+	
+			$stmt = $this->bancoDeDados->prepare( "SELECT
+													C.nome
+												FROM Curso C, Usuario U 
+												WHERE
+													C.codMinistrante=:cod and U.codUsuario=:cod");
+			$stmt->bindParam(":cod", $cod);
+			$stmt->execute();
+			$this->bancoDeDados = null;
+	
+			//Retorna o resultset o/
+			return $stmt;
+	
+		} catch ( PDOException $ex ) {
+			echo "Erro: " . $ex->getMessage ();
+		}
+	}
 }
 ?>

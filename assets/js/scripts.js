@@ -1,72 +1,119 @@
 $(function() {
-	$.fn
-			.extend({
-				filterTable : function() {
-					return this
-							.each(function() {
-								$(this)
-										.on(
-												'keyup',
-												function(e) {
-													$('.filterTable_no_results')
-															.remove();
-													var $this = $(this), search = $this
-															.val()
-															.toLowerCase(), target = $this
-															.attr('data-filters'), $target = $(target), $rows = $target
-															.find('tbody tr');
-													if (search == '') {
-														$rows.show();
-													} else {
-														$rows
-																.each(function() {
-																	var $this = $(this);
-																	$this
-																			.text()
-																			.toLowerCase()
-																			.indexOf(
-																					search) === -1 ? $this
-																			.hide()
-																			: $this
-																					.show();
-																})
-														if ($target
-																.find(
-																		'tbody tr:visible')
-																.size() === 0) {
-															var col_count = $target
-																	.find('tr')
-																	.first()
-																	.find('td')
-																	.size();
-															var no_results = $('<tr class="filterTable_no_results"><td colspan="'
-																	+ col_count
-																	+ '">Nenhum Resultado</td></tr>')
-															$target
-																	.find(
-																			'tbody')
-																	.append(
-																			no_results);
-														}
-													}
-												});
-							});
+	function limpa_formulário_cep() {
+		// Limpa valores do formulário de cep.
+		$("#rua").val("");
+		$("#bairro").val("");
+		$("#cidade").val("");
+		$("#uf").val("");
+		$("#ibge").val("");
+	}
+
+	// Quando o campo cep perde o foco.
+	$("#cep").blur(
+			function() {
+
+				// Nova variável com valor do campo "cep".
+				var cep = $(this).val();
+
+				// Verifica se campo cep possui valor informado.
+				if (cep != "") {
+
+					// Expressão regular para validar o CEP.
+					var validacep = /^[0-9]{5}-?[0-9]{3}$/;
+
+					// Valida o formato do CEP.
+					if (validacep.test(cep)) {
+
+						// Preenche os campos com "..." enquanto consulta
+						// webservice.
+						$("#rua").val("...")
+						$("#bairro").val("...")
+						$("#cidade").val("...")
+						$("#uf").val("...")
+						$("#ibge").val("...")
+
+						// Consulta o webservice viacep.com.br/
+						$.getJSON("//viacep.com.br/ws/" + cep
+								+ "/json/?callback=?", function(dados) {
+
+							if (!("erro" in dados)) {
+								// Atualiza os campos com os valores da
+								// consulta.
+								$("#rua").val(dados.logradouro);
+								$("#bairro").val(dados.bairro);
+								$("#cidade").val(dados.localidade);
+								$("#uf").val(dados.uf);
+								$("#ibge").val(dados.ibge);
+							} // end if.
+							else {
+								// CEP pesquisado não foi encontrado.
+								limpa_formulário_cep();
+								alert("CEP não encontrado.");
+							}
+						});
+					} // end if.
+					else {
+						// cep é inválido.
+						limpa_formulário_cep();
+						alert("Formato de CEP inválido.");
+					}
+				} // end if.
+				else {
+					// cep sem valor, limpa formulário.
+					limpa_formulário_cep();
 				}
 			});
-	$('[data-action="filter"]').filterTable();
+	$(".periodo").multiDatesPicker(
+			{
+				dateFormat : 'dd/mm/yy',
+				dayNames : [ 'Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta',
+						'Sexta', 'Sábado' ],
+				dayNamesMin : [ 'D', 'S', 'T', 'Q', 'Q', 'S', 'S', 'D' ],
+				dayNamesShort : [ 'Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex',
+						'Sáb', 'Dom' ],
+				monthNames : [ 'Janeiro', 'Fevereiro', 'Março', 'Abril',
+						'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro',
+						'Outubro', 'Novembro', 'Dezembro' ],
+				monthNamesShort : [ 'Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun',
+						'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez' ],
+				nextText : 'Próximo',
+				prevText : 'Anterior',
+				maxPicks : 2
+			});
+	$(".dias").multiDatesPicker(
+			{
+				dateFormat : 'dd/mm/yy',
+				dayNames : [ 'Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta',
+						'Sexta', 'Sábado' ],
+				dayNamesMin : [ 'D', 'S', 'T', 'Q', 'Q', 'S', 'S', 'D' ],
+				dayNamesShort : [ 'Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex',
+						'Sáb', 'Dom' ],
+				monthNames : [ 'Janeiro', 'Fevereiro', 'Março', 'Abril',
+						'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro',
+						'Outubro', 'Novembro', 'Dezembro' ],
+				monthNamesShort : [ 'Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun',
+						'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez' ],
+				nextText : 'Próximo',
+				prevText : 'Anterior'
+			});
+	$(".date-picker").datepicker({
+				dateFormat : 'dd/mm/yy',
+				dayNames : [ 'Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta',
+						'Sexta', 'Sábado' ],
+				dayNamesMin : [ 'D', 'S', 'T', 'Q', 'Q', 'S', 'S', 'D' ],
+				dayNamesShort : [ 'Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex',
+						'Sáb', 'Dom' ],
+				monthNames : [ 'Janeiro', 'Fevereiro', 'Março', 'Abril',
+						'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro',
+						'Outubro', 'Novembro', 'Dezembro' ],
+				monthNamesShort : [ 'Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun',
+						'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez' ],
+				nextText : 'Próximo',
+				prevText : 'Anterior'
+			});
+	
+	
+	$.post("../gateways/index.php",{cod:$("#cod").val()},function(dados,status){
+		alert(dados)
+	})
 });
-
-$(function() {
-	// attach table filter plugin to inputs
-	$('[data-action="filter"]').filterTable();
-
-	$('.container').on('click', '.panel-heading span.filter', function(e) {
-		var $this = $(this), $panel = $this.parents('.panel');
-
-		$panel.find('.panel-body').slideToggle();
-		if ($this.css('display') != 'none') {
-			$panel.find('.panel-body input').focus();
-		}
-	});
-	$('[data-toggle="tooltip"]').tooltip();
-})
