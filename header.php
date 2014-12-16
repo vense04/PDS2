@@ -55,7 +55,7 @@
 					<li><a href="cadastrar.php">Cadastre-se</a></li>
 					<li class="active"><button class="btn-theme radius" href="#login"
 							data-toggle="modal" data-target=".bs-modal-sm">LOGIN</button></li>
-					<?} else { ?>
+					<?php } else { ?>
 					<li class="dropdown"><a href="#" class="dropdown-toggle"
 						data-toggle="dropdown" role="button" aria-expanded="false"> <img
 							class="profile-img foto"
@@ -70,7 +70,7 @@
 							<li class="divider"></li>
 							<li><a href="?log=out">Sair</a></li>
 						</ul></li>
-					<?}?>
+					<?php }?>
 				</ul>
 			</div>
 			<!--/.nav-collapse -->
