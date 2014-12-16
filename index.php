@@ -94,7 +94,8 @@ echo'<div class="portfolio-modal modal fade" id="portfolioModal'.$i.'" tabindex=
                             <p>'.$linha["detalhes"].'</p>
                             <p>Quer se cadastrar nesse curso? Você pode se cadastrar e de graça, cortesia de Certificados Cursos.</p>
 							<form action="assets/php/formularios/matriculaCurso.php" method="post" id="formcurso">
-								<input type="hidden" id="cod" value="<?php echo  $codUsuario?>" name="cod">
+								<input type="hidden" id="cod" value="'.$linha["codCurso"].'" name="cod">
+								<input type="hidden" id="cod" value="'.$codUsuario.'" name="cod">
 								<button class="btn-theme btn" id="matricula">Cadastrar</button>
 							</form>
                             <ul class="list-inline">

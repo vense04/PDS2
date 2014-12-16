@@ -6,15 +6,16 @@ include_once '../include/seguranca.php';
 if (!empty($_POST)) {
 	//Instanciando dados do formulários
 	$codUsuario = (isSet($_POST["cod"])) ? diferenteVazio($_POST["cod"]) : false;
+	$data = date('d/m/y') ;
+	$codCurso = (isSet($_POST["codCurso"])) ? diferenteVazio($_POST["codCurso"]) : false;
 	
-	//Valida os campos e cadastra o caboclo caso esteja tudo oks
-	if ($codUsuario) {
+	echo  $codCurso.$codCurso;
+	
 		include_once '../dao/matriculaDao.class.php';
-		$cursoDao = new CursoDao();
-		$codCurso = $cursoDao->insereCurso($descricao, $minimoCertificado, $avatar, $codUsuario, $tema, $nome, converteData($dataInicio), $cargaHoraria, converteData($dataFim), converteData($periodo[0]), converteData($periodo[1]));
+		$matricula = new MatriculaDao();
+		$matricula->matriculaCurso($cod, $codCurso, $data);
+	
 		
-		
-	}
 	
 	
 }
