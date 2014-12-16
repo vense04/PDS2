@@ -113,7 +113,4 @@ $(function() {
 			});
 	
 	
-//	$.post("../gateways/index.php",{cod:$("#cod").val()},function(dados,status){
-//		alert(dados)
-//	})
 });

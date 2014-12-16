@@ -112,6 +112,7 @@
 		});
 	})
 </script>
+<script src="assets/js/project.js"></script>
 </body>
 </html>
 

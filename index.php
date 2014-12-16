@@ -90,13 +90,16 @@ echo'<div class="portfolio-modal modal fade" id="portfolioModal'.$i.'" tabindex=
                             Inicio: '.$linha["inicio"].'
                             <h2>'.$linha["nome"].'</h2>
                             <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                            <img class="img-responsive" src="assets/avatar/'.$linha["avatarOriginal"].'" alt="">
+                            <img class="img-responsive" src="assets/avatar/'.$linha["avatar"].'" alt="">
                             <p>'.$linha["detalhes"].'</p>
                             <p>Quer se cadastrar nesse curso? Você pode se cadastrar e de graça, cortesia de Certificados Cursos.</p>
-							<button class="btn-theme btn" id="matricula">Cadastrar</button>
+							<form action="assets/php/formularios/matriculaCurso.php" method="post" id="formcurso">
+								<input type="hidden" id="cod" value="<?php echo  $codUsuario?>" name="cod">
+								<button class="btn-theme btn" id="matricula">Cadastrar</button>
+							</form>
                             <ul class="list-inline">
                                 <li>Periodo de inscrições: '.$linha["inscricaoInicio"]." á ".$linha["inscricaoFim"].'</li>
-                                <li>Codigo: '.$linha["codMinistrante"].'</li>
+                                <li>Codigo: <span id="codCurso">'.$linha["codCurso"].'</span></li>
                                 <li>Tema: '.$linha["tema"].'</li>
                             </ul>
                             <button type="button" class="btn btn-theme pull-right" data-dismiss="modal"><i class="fa fa-times"></i>Fechar</button>

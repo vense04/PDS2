@@ -57,7 +57,7 @@ echo'<div class="portfolio-modal modal fade" id="portfolioModal'.$i.'" tabindex=
                             Inicio: '.$linha["inicio"].'
                             <h2>'.$linha["nome"].'</h2>
                             <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                            <img class="img-responsive" src="assets/avatar/'.$linha["avatarOriginal"].'" alt="">
+                            <img class="img-responsive" src="assets/avatar/'.$linha["avatar"].'" alt="">
                             <p>'.$linha["detalhes"].'</p>
                             <p>Quer se cadastrar nesse curso? Você pode se cadastrar e de graça, cortesia de Certificados Cursos.</p>
 							<button class="btn-theme btn" id="matricula">Cadastrar</button>

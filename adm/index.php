@@ -1,6 +1,6 @@
-<?php 
-	// Segurança do sistema
-	include_once '../assets/php/include/seguranca.php';
+<?php
+// Segurança do sistema
+include_once '../assets/php/include/seguranca.php';
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -147,40 +147,29 @@
 																<th>Certificado</th>
 															</tr>
 														</thead>
-														<tbody>	
-															<?php
-																include_once '../assets/php/dao/cursoDao.class.php';
-																$cursos = new CursoDao ();
-																$cursos->selecionaCursoUsuario($codUsuario);
-
-																while ( $linha = $cursos->fetchAll () ) {
-															?>
+														<tbody>
 															<tr>
 																<td>$linha["nome"]</td>
-																<td><a href="#"><span
-																		class="glyphicon glyphicon-inbox"></span></a></td>
-																<td><a href="#"><span
-																		class="glyphicon glyphicon-print"></span></a></td>
+																<td><a href="#"><span class="glyphicon glyphicon-inbox"></span></a></td>
+																<td><a href="#"><span class="glyphicon glyphicon-print"></span></a></td>
 															</tr>
-															<?php }?>
 														</tbody>
 													</table>
 												</div>
 											</div>
 										</div>
 									</div>
-
 									<div class="panel panel-default">
 										<div class="panel-heading">
 											<h4>What Is Bootstrap?</h4>
 										</div>
-										<div class="panel-body">Bootstrap is front end
-											frameworkto build custom web applications that are fast,
-											responsive &amp; intuitive. It consist of CSS and HTML for
-											typography, forms, buttons, tables, grids, and navigation
-											along with custom-built jQuery plug-ins and support for
-											responsive layouts. With dozens of reusable components for
-											navigation, pagination, labels, alerts etc..</div>
+										<div class="panel-body">Bootstrap is front end frameworkto
+											build custom web applications that are fast, responsive &amp;
+											intuitive. It consist of CSS and HTML for typography, forms,
+											buttons, tables, grids, and navigation along with
+											custom-built jQuery plug-ins and support for responsive
+											layouts. With dozens of reusable components for navigation,
+											pagination, labels, alerts etc..</div>
 									</div>
 								</div>
 
@@ -222,6 +211,8 @@
 																value="1"></td>
 														</tr>
 														<tr>
+														
+														
 														<tr>
 															<td>Trout</td>
 															<td><input type="checkbox" name="checkboxes"
@@ -263,8 +254,8 @@
 							<hr>
 
 							<h4 class="text-center">
-								<a href="http://bootply.com/96266" target="ext">Download
-									this Template @Bootply</a>
+								<a href="http://bootply.com/96266" target="ext">Download this
+									Template @Bootply</a>
 							</h4>
 
 							<hr>
@@ -292,7 +283,9 @@
 					<h1>Cadastrar Curso</h1>
 				</div>
 
-				<form class="" role="form" action="../assets/php/formularios/registroCurso.php" method="post" enctype="multipart/form-data">
+				<form class="" role="form"
+					action="../assets/php/formularios/registroCurso.php" method="post"
+					enctype="multipart/form-data">
 					<div class="form-group">
 						<div class="row">
 							<div class="col-sm-8">
@@ -333,13 +326,13 @@
 							</div>
 
 							<div class="col-sm-4">
-								<label class="control-label">Dias de Curso</label> <input type="text"
-									class="form-control  dias" name="dias" />
+								<label class="control-label">Dias de Curso</label> <input
+									type="text" class="form-control  dias" name="dias" />
 							</div>
 
 							<div class="col-sm-4">
-								<label class="control-label">Minimo para Certificado</label> 
-								<select class="form-control" name="minimoCertificado">
+								<label class="control-label">Minimo para Certificado</label> <select
+									class="form-control" name="minimoCertificado">
 									<option value="50">50%</option>
 									<option value="60">60%</option>
 									<option value="70">70%</option>
@@ -356,10 +349,10 @@
 									class="form-control" name="avatar" />
 							</div>
 
-<!-- 							<div class="col-sm-6"> -->
-<!-- 								<label class="control-label">Arquivo</label> <input type="file" -->
-<!-- 									class="form-control" name="" /> -->
-<!-- 							</div> -->
+							<!-- 							<div class="col-sm-6"> -->
+							<!-- 								<label class="control-label">Arquivo</label> <input type="file" -->
+							<!-- 									class="form-control" name="" /> -->
+							<!-- 							</div> -->
 						</div>
 					</div>
 
@@ -377,7 +370,7 @@
 							</div>
 							<div class="col-sm-8">
 								<label class="control-label">Rua/Av.</label> <input type="text"
-									class="form-control" name="logradouro" id="rua"/>
+									class="form-control" name="logradouro" id="rua" />
 							</div>
 						</div>
 					</div>
@@ -396,11 +389,10 @@
 
 							<div class="col-sm-4">
 								<label class="control-label">Cidade</label> <input type="text"
-									class="form-control" name="cidade" id="cidade"/>
-									<input type="hidden"
-									class="form-control" name="estado" id="uf"/>
+									class="form-control" name="cidade" id="cidade" /> <input
+									type="hidden" class="form-control" name="estado" id="uf" />
 							</div>
-							
+
 						</div>
 					</div>
 
