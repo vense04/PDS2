@@ -9,7 +9,7 @@ if (!$logado) {
 		<div class="row">
 			<h2>Cadastrar Curso</h2>
 			<div class="col-md-9">
-				<form class="form-horizontal" role="form" action="assets/php/formularios/registro.php" method="post" enctype="multipart/form-data">
+				<form class="form-horizontal" role="form" action="assets/php/formularios/registroCurso.php" method="post" enctype="multipart/form-data">
 					<div class="form-group">
 						<div class="row">
 							<div class="col-sm-8">
@@ -68,15 +68,11 @@ if (!$logado) {
 					</div>
 					<div class="form-group">
 						<div class="row">
-							<div class="col-sm-6">
+							<div class="col-sm-8">
 								<label class="control-label">Foto</label> <input type="file"
 									class="form-control" name="avatar" />
 							</div>
 
-							<div class="col-sm-6">
-								<label class="control-label">Arquivo</label> <input type="file"
-									class="form-control" name="arquivos" multiple="multiple" />
-							</div>
 						</div>
 					</div>
 
