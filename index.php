@@ -55,7 +55,7 @@ include_once 'header.php';
 				echo '<a href="#portfolioModal' . $i . '" class="portfolio-link" data-toggle="modal">';
 				echo '<div class="portfolio-hover">';
 				echo '<div class="portfolio-hover-content"><i class="fa fa-plus fa-3x"></i></div> ';
-				echo '</div> <img src="assets/avatar/' . $linha ["avatar"] . '" class="img-responsive" alt="">';
+				echo '</div> <img src="assets/avatar/' . $linha ["avatar"] . '" class="img-responsive" alt="" width="400" height="289">';
 				echo '</a> ';
 				echo '<div class="portfolio-caption"> 
 			 					<h4>' . $linha ["nome"] . '</h4> 
@@ -75,7 +75,7 @@ $stmt = $cursos->selecionaCursos ();
 
 $i = 0;
 while ( $linha = $stmt->fetch () ) {
-echo'<div class="portfolio-modal modal fade" id="portfolioModal'.$i.'" tabindex="-1" role="dialog" aria-hidden="true">
+	echo '<div class="portfolio-modal modal fade" id="portfolioModal' . $i . '" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-content">
             <div class="close-modal" data-dismiss="modal">
                 <div class="lr">
@@ -87,17 +87,17 @@ echo'<div class="portfolio-modal modal fade" id="portfolioModal'.$i.'" tabindex=
                 <div class="row">
                     <div class="col-lg-8 col-lg-offset-2">
                         <div class="modal-body">
-                            Inicio: '.$linha["inicio"].'
-                            <h2>'.$linha["nome"].'</h2>
+                            Inicio: ' . $linha ["inicio"] . '
+                            <h2>' . $linha ["nome"] . '</h2>
                             <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                            <img class="img-responsive" src="assets/avatar/'.$linha["avatarOriginal"].'" alt="">
-                            <p>'.$linha["detalhes"].'</p>
+                            <img class="img-responsive" src="assets/avatar/' . $linha ["avatarOriginal"] . '" alt="" width="600" height="450">
+                            <p>' . $linha ["detalhes"] . '</p>
                             <p>Quer se cadastrar nesse curso? Você pode se cadastrar e de graça, cortesia de Certificados Cursos.</p>
-							<button class="btn-theme btn" id="matricula">Cadastrar</button>
+							<a href="" class="btn-theme btn">Cadastrar</a>
                             <ul class="list-inline">
-                                <li>Periodo de inscrições: '.$linha["inscricaoInicio"]." á ".$linha["inscricaoFim"].'</li>
-                                <li>Codigo: '.$linha["codMinistrante"].'</li>
-                                <li>Tema: '.$linha["tema"].'</li>
+                                <li>Periodo de inscrições: ' . $linha ["inscricaoInicio"] . " á " . $linha ["inscricaoFim"] . '</li>
+                                <li>Codigo: ' . $linha ["codMinistrante"] . '</li>
+                                <li>Tema: ' . $linha ["tema"] . '</li>
                             </ul>
                             <button type="button" class="btn btn-theme pull-right" data-dismiss="modal"><i class="fa fa-times"></i>Fechar</button>
                         </div>
@@ -106,10 +106,11 @@ echo'<div class="portfolio-modal modal fade" id="portfolioModal'.$i.'" tabindex=
             </div>
         </div>
     </div>';
-$i++;
+	$i++;
 }
 ?>
 
 <?php
+
 include_once 'footer.php';
 ?>
