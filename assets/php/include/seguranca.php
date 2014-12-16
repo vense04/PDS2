@@ -96,7 +96,8 @@ if (! isSet ( $_SESSION ['Usuario'] )) {
 // 			header ( "location:index.php?erro=true" );
 // 		}
 // 	}
-} // Está logado
+} 
+// Está logado
 else {
 	$sessao = explode ( '+', $_SESSION ['Usuario'] );
 	$codUsuario = $sessao [0];

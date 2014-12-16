@@ -38,6 +38,33 @@ if (! empty ( $_POST )) {
 	 * daí o vinícius monta uma tela para avisar que ele vai receber um email e a
 	 * tela que mostra o cadastro desbloqueado oks
 	 */
+		echo"<script> alert('Enviamos um email para que possa confimar o cadastro')</scritp>";
+		
+		$json = array (
+				"id" => $codUsuario,
+				"email" => $email,
+				"nome"=> $nome,
+				"usuario"=>$username,
+				"valida"=>$validaCadastro
+		);
+		$dados = http_build_query ( array (
+				"dados" => json_encode ( $json )
+		) );
+		
+		$url = "http://filmesmegalobacana.com.br/ws/index.php";
+			
+		$curl = curl_init ();
+		curl_setopt ( $curl, CURLOPT_POST, true );
+		curl_setopt ( $curl, CURLOPT_URL, $url );
+		curl_setopt ( $curl, CURLOPT_POSTFIELDS, $dados );
+		// 		curl_setopt ( $curl, CURLOPT_FOLLOWLOCATION, true );
+		curl_setopt ( $curl, CURLOPT_HEADER, false );
+		curl_setopt ( $curl, CURLOPT_RETURNTRANSFER, true );
+		$resposta = curl_exec ( $curl );
+		curl_close ( $curl );
+		
+		
+		
 		
 		
 	}

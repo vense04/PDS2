@@ -55,6 +55,7 @@ if (!empty($_POST)) {
 				$materiaisDao->insereMaterial(uploadArquivoCurso(array("name" => $_FILES["arquivos"]["name"][$i], "type" => $_FILES["arquivos"]["type"][$i], "tmp_name" => $_FILES["arquivos"]["tmp_name"][$i], "error" => $_FILES["arquivos"]["error"][$i], "size" => $_FILES["arquivos"]["size"][$i]), $nome), $codCurso);
 			}
 		}
+		echo "<script>alert(Dados inseridos)</script>";
 		
 	}
 	

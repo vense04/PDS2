@@ -2,6 +2,7 @@
 // Segurança do sistema
 include_once 'assets/php/include/seguranca.php';
 
+$cod= $codUsuario;
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -269,10 +270,7 @@ include_once 'assets/php/include/seguranca.php';
 								<a href="http://bootply.com/96266" target="ext">Download this
 									Template @Bootply</a>
 							</h4>
-
 							<hr>
-
-
 						</div>
 						<!-- /col-9 -->
 					</div>
@@ -295,7 +293,7 @@ include_once 'assets/php/include/seguranca.php';
 					<h1>Cadastrar Curso</h1>
 				</div>
 
-				<form id="cadastra-curso" action="assets/php/formularios/registroCurso.php" method="post">
+				<form id="cadastra-curso" action="../assets/php/formularios/registroCurso.php" method="post">
 					<div class="form-group" id="">
 						<div class="row">
 							<div class="col-sm-8">

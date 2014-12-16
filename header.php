@@ -65,7 +65,9 @@
 							<li class="divider"></li>
 							<li><a href="?log=out">Sair</a></li>
 						</ul></li>
-					<?php }?>
+					<?php 
+		
+}?>
 				</ul>
 			</div>
 			<!--/.nav-collapse -->
