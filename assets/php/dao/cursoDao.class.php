@@ -51,7 +51,6 @@ class CursoDao {
 															, 	?
 															, 	?
 															, 	?
-															, 	?
 															,	?
 															,	?)");
 				
@@ -89,20 +88,13 @@ class CursoDao {
 	
 			$stmt = $this->bancoDeDados->prepare( "SELECT
 													C.avatar
-													,	C.avatarOriginal
-													,	C.cargaHoraria
 													,	C.codCurso
 													,	C.codMinistrante
-													,	C.detalhes
-													,	C.fim
-													,	C.inicio
-													,	C.inscricaoFim
-													,	C.inscricaoInicio
-													,	C.minimoCertificado
 													,	C.nome
 													,	C.tema
 													,	U.nome AS Ministrante
-												FROM Curso C,Usuario U WHERE
+												FROM Curso C
+												INNER JOIN Usuario U ON
 													C.codMinistrante = U.codUsuario");
 	
 			$stmt->execute();
@@ -128,7 +120,6 @@ class CursoDao {
 	
 			$stmt = $this->bancoDeDados->prepare( "SELECT
 													C.avatar
-													,	C.avatarOriginal
 													,	C.cargaHoraria
 													,	C.codCurso
 													,	C.codMinistrante

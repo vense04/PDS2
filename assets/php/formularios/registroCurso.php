@@ -22,7 +22,6 @@ if (!empty($_POST)) {
 	$estado = (isSet($_POST["estado"])) ? diferenteVazio($_POST["estado"]) : false;
 	$bairro = (isSet($_POST["bairro"])) ? diferenteVazio($_POST["bairro"]) : false;
 	
-	
 	//Valida os campos e cadastra o caboclo caso esteja tudo oks
 	if ($nome && $tema && $dataInicio && $dataFim && $cargaHoraria && $periodo && $dias && $minimoCertificado && $cep) {
 		include_once '../dao/cursoDao.class.php';
@@ -30,7 +29,6 @@ if (!empty($_POST)) {
 		$avatar = str_replace("../../avatar/", "", (!empty($_FILES["avatar"])) ? uploadAvatar($_FILES["avatar"]) : "../../avatar/avatar.jpg");
 		$cursoDao = new CursoDao();
 		$codCurso = $cursoDao->insereCurso($descricao, $minimoCertificado, $avatar, $codUsuario, $tema, $nome, converteData($dataInicio), $cargaHoraria, converteData($dataFim), converteData($periodo[0]), converteData($periodo[1]));
-		
 		
 		include_once '../dao/enderecoDao.class.php';
 		$enderecoDao = new EnderecoDao();
@@ -57,6 +55,7 @@ if (!empty($_POST)) {
 		
 	}
 	
+	
 }
 
 /**
@@ -79,28 +78,9 @@ function uploadAvatar($avatar) {
 		// Associamos a classe à variável $upload 
 		$upload = new UploadImagem(); 
 		// Determinamos nossa largura máxima permitida para a imagem 
-		$upload->width = 400; 
+		$upload->width = 250; 
 		// Determinamos nossa altura máxima permitida para a imagem 
-		$upload->height = 289; 
-		// Exibimos a mensagem com sucesso ou erro retornada pela função salvar. 
-		//Se for sucesso, a mensagem também é um link para a imagem enviada. 
-		return $upload->salvar("../../avatar/", $avatar); 
-}
-
-/**
- * Recebe a imagem do usuário, realiza o upload e retorna o caminha da mesma no servidor
- * @param String $avatar
- * @return string
- */
-function uploadAvatarOriginal($avatar) {
-		// Incluímos o arquivo com a classe 
-		include_once '../util/classupload.php'; 
-		// Associamos a classe à variável $upload 
-		$upload = new UploadImagem(); 
-		// Determinamos nossa largura máxima permitida para a imagem 
-		$upload->width = 600; 
-		// Determinamos nossa altura máxima permitida para a imagem 
-		$upload->height = 450; 
+		$upload->height = 250; 
 		// Exibimos a mensagem com sucesso ou erro retornada pela função salvar. 
 		//Se for sucesso, a mensagem também é um link para a imagem enviada. 
 		return $upload->salvar("../../avatar/", $avatar); 
@@ -115,9 +95,13 @@ function uploadAvatarOriginal($avatar) {
  */
 function uploadArquivoCurso($arquivo, $nomeCurso) {
 	// Incluímos o arquivo com a classe
-	include_once '../util/classuploadArquivos.php';
+	include_once '../util/classupload.php';
 	// Associamos a classe à variável $upload
-	$upload = new Upload();
+	$upload = new UploadImagem();
+	// Determinamos nossa largura máxima permitida para a imagem
+	$upload->width = 250;
+	// Determinamos nossa altura máxima permitida para a imagem
+	$upload->height = 250;
 	// Exibimos a mensagem com sucesso ou erro retornada pela função salvar.
 	//Se for sucesso, a mensagem também é um link para a imagem enviada.
 	return $upload->salvar("../../" + $nomeCurso + "/", $arquivo);

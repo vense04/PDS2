@@ -68,11 +68,15 @@ if (!$logado) {
 					</div>
 					<div class="form-group">
 						<div class="row">
-							<div class="col-sm-8">
+							<div class="col-sm-6">
 								<label class="control-label">Foto</label> <input type="file"
 									class="form-control" name="avatar" />
 							</div>
 
+							<div class="col-sm-6">
+								<label class="control-label">Arquivo</label> <input type="file"
+									class="form-control" name="arquivos[]" multiple="multiple" readonly="readonly" />
+							</div>
 						</div>
 					</div>
 
