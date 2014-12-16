@@ -96,7 +96,7 @@ $(function() {
 				nextText : 'Próximo',
 				prevText : 'Anterior'
 			});
-	$(".date-picker").datepicker({
+		$(".date-picker").datepicker({
 				dateFormat : 'dd/mm/yy',
 				dayNames : [ 'Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta',
 						'Sexta', 'Sábado' ],
@@ -110,7 +110,7 @@ $(function() {
 						'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez' ],
 				nextText : 'Próximo',
 				prevText : 'Anterior'
-			});
+		});
 	
 	
 });

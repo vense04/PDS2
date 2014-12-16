@@ -2,6 +2,7 @@
 	// Segurança do sistema
 	include_once 'assets/php/include/seguranca.php';
 	
+	
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">

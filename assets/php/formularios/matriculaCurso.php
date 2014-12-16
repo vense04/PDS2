@@ -9,13 +9,16 @@ if (!empty($_POST)) {
 	$data = date('d/m/y') ;
 	$codCurso = (isSet($_POST["codCurso"])) ? diferenteVazio($_POST["codCurso"]) : false;
 	
-	echo  $codCurso.$codCurso;
+	echo  $codCurso.$codCurso ."teste";
 	
+	//Valida os campos e cadastra o caboclo caso esteja tudo oks
+	if ($codUsuario) {	
 		include_once '../dao/matriculaDao.class.php';
 		$matricula = new MatriculaDao();
 		$matricula->matriculaCurso($cod, $codCurso, $data);
 	
 		
+	}
 	
 	
 }

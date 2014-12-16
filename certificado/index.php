@@ -16,7 +16,6 @@
 				"nome":"Vinicius"
 			};
 			$.post("inter/index.php",{gerar:JSON.stringify(valores)},function(dados,status){
-				alert(dados);
 				var teste = dados.replace("\\","");
 				var teste2 = teste.replace("\\","");
 				var teste3 = teste2.replace("\\","");

@@ -1,6 +1,9 @@
 <?php
 // Segurança do sistema
 include_once '../assets/php/include/seguranca.php';
+if (!$logado) {
+	header ( "location:../index.php?erro=naoLogado");
+}
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -149,9 +152,9 @@ include_once '../assets/php/include/seguranca.php';
 														</thead>
 														<tbody>
 															<tr>
-																<td>$linha["nome"]</td>
+																<td>Nome do Curso</td>
 																<td><a href="#"><span class="glyphicon glyphicon-inbox"></span></a></td>
-																<td><a href="#"><span class="glyphicon glyphicon-print"></span></a></td>
+																<td><a href="../certificado/"><span class="glyphicon glyphicon-print"></span></a></td>
 															</tr>
 														</tbody>
 													</table>

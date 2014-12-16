@@ -9,7 +9,6 @@ $cursos->selecionaCursoUsuario($cod);
 
 if($cursos->rowCount()){
 	$linhas = $stmt->fetchAll ( PDO::FETCH_ASSOC );
-	
 	echo json_encode($linhas);
 }
 	

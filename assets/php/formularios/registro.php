@@ -38,7 +38,7 @@ if (! empty ( $_POST )) {
 	 * daí o vinícius monta uma tela para avisar que ele vai receber um email e a
 	 * tela que mostra o cadastro desbloqueado oks
 	 */
-		echo"<script> alert('Enviamos um email para que possa confimar o cadastro')</scritp>";
+		print '<script> alert("Enviamos um email para que possa confimar o cadastro")</script>';
 		
 		$json = array (
 				"id" => $codUsuario,
@@ -63,7 +63,11 @@ if (! empty ( $_POST )) {
 		$resposta = curl_exec ( $curl );
 		curl_close ( $curl );
 		
-		header('Location: index.php'); 
+		
+		
+		$dado = "../index.php";
+		
+ 		header('Location: '.$dado); 
 		
 		
 		
