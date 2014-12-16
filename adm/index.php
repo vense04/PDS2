@@ -9,10 +9,12 @@
 <meta charset="utf-8">
 <title>Administrator</title>
 <meta name="generator" content="Bootply" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, maximum-scale=1">
 
 <!-- CSS -->
-<link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+<link rel="stylesheet"
+	href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
 <link href="../assets/css/bootstrap.css" rel="stylesheet">
 <link href="../assets/css/styles.css" rel="stylesheet">
 
@@ -50,9 +52,6 @@
 </head>
 <body>
 	<div class="wrapper">
-	<?php  if ($logado) { ?>
-		<input type="hidden" id="cod" value="<?php echo $codUsuario?>">
-	<?php } ?>
 		<div class="box">
 			<div class="row row-offcanvas row-offcanvas-left">
 				<!-- main right col -->
@@ -84,25 +83,23 @@
 								</div>
 							</form>
 							<ul class="nav navbar-nav">
-								<li><a href="#"><i class="glyphicon glyphicon-home"></i>
-										Home</a></li>
-								<li><a href="#cadastroModal" role="button"
-									data-toggle="modal"><i class="glyphicon glyphicon-plus"></i>
-										Cadastrar Curso</a></li>
-								<li><a href="#atualizaModal" role="button"
-									data-toggle="modal"><i class="glyphicon glyphicon-refresh"></i>
-										Atualiza Dados</a></li>
+								<li><a href="#"><i class="glyphicon glyphicon-home"></i> Home</a></li>
+								<li><a href="#cadastroModal" role="button" data-toggle="modal"><i
+										class="glyphicon glyphicon-plus"></i> Cadastrar Curso</a></li>
+								<li><a href="#atualizaModal" role="button" data-toggle="modal"><i
+										class="glyphicon glyphicon-refresh"></i> Atualiza Dados</a></li>
 								<!-- 								<li><a href="#"><span class="badge">badge</span></a></li> -->
 							</ul>
-							
+
 							<ul class="nav navbar-nav navbar-right">
 								<li class="dropdown"><a href="#" class="dropdown-toggle"
-									data-toggle="dropdown"><i class="glyphicon glyphicon-arrow-left"></i></a>
+									data-toggle="dropdown"><i
+										class="glyphicon glyphicon-arrow-left"></i></a>
 									<ul class="dropdown-menu">
 										<li><a href="../index.php">Voltar ao Site</a></li>
 									</ul></li>
 							</ul>
-					
+
 						</nav>
 					</div>
 					<!-- /top nav -->
@@ -150,21 +147,22 @@
 																<th>Certificado</th>
 															</tr>
 														</thead>
-														<tbody>
+														<tbody>	
+															<?php
+																include_once '../assets/php/dao/cursoDao.class.php';
+																$cursos = new CursoDao ();
+																$cursos->selecionaCursoUsuario($codUsuario);
+
+																while ( $linha = $cursos->fetchAll () ) {
+															?>
 															<tr>
-																<td>Trout</td>
+																<td>$linha["nome"]</td>
 																<td><a href="#"><span
 																		class="glyphicon glyphicon-inbox"></span></a></td>
 																<td><a href="#"><span
 																		class="glyphicon glyphicon-print"></span></a></td>
 															</tr>
-															<tr>
-																<td>Rodrigo Viado</td>
-																<td><a href="#"><span
-																		class="glyphicon glyphicon-inbox"></span></a></td>
-																<td><a href="#"><span
-																		class="glyphicon glyphicon-print"></span></a></td>
-															</tr>
+															<?php }?>
 														</tbody>
 													</table>
 												</div>

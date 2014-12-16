@@ -1,16 +1,17 @@
 <?php
-include_once 'assets/php/dao/cursoDao.class.php';
-$cursos = new CursoDao ();
-
-if(isset($_POST["dado"])){
-	$curso = $_POST["dado"];
-	$json = json_decode ( $curso, true );
-	$cod = $json ["cod"];
-	$cursos->bancoDeDados->
-	echo $cod;
-	
+if(isset($_GET)){
+	$cod= $_GET["cod"];
 }
 
+include_once 'assets/php/dao/cursoDao.class.php';
+$cursos = new CursoDao ();
+$cursos->selecionaCursoUsuario($cod);
+
+if($cursos->rowCount()){
+	$linhas = $stmt->fetchAll ( PDO::FETCH_ASSOC );
+	
+	echo json_encode($linhas);
+}
 	
 	
 

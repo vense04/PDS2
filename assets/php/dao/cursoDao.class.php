@@ -171,8 +171,8 @@ class CursoDao {
 													C.nome
 												FROM Curso C, Usuario U 
 												WHERE
-													C.codMinistrante=:cod and U.codUsuario=:cod");
-			$stmt->bindParam(":cod", $cod);
+													C.codMinistrante=? and U.codUsuario=?");
+			$stmt->bindValue(1, $cod);
 			$stmt->execute();
 			$this->bancoDeDados = null;
 	

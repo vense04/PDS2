@@ -1,16 +1,10 @@
 <?php
 if (isset ( $_POST ["cod"] )) {
 	$cod = $_POST ["cod"];
-	
-	$json = array (
-			"cod" => $cod 
-	);
-	
 
-		$dados = http_build_query ( array ('dado' => json_encode( $json )));
 	
 	
-	$url = "http://localhost:8888/PDS2/assets/php/WS/index.php";
+	$url = "http://localhost:8888/PDS2/assets/php/WS/index.php?cod=$cod";
 	
 	$curl = curl_init ();
 	curl_setopt ( $curl, CURLOPT_POST, true );
