@@ -373,7 +373,7 @@ if (!$logado) {
 							</div>
 							<div class="col-sm-8">
 								<label class="control-label">Rua/Av.</label> <input type="text"
-									class="form-control" name="logradouro" id="rua" />
+									class="form-control" name="logradouro" id="rua" readonly="readonly"/>
 							</div>
 						</div>
 					</div>
@@ -387,13 +387,13 @@ if (!$logado) {
 
 							<div class="col-sm-4">
 								<label class="control-label">Bairro</label> <input type="text"
-									class="form-control" name="bairro" id="bairro" />
+									class="form-control" name="bairro" id="bairro" readonly="readonly"/>
 							</div>
 
 							<div class="col-sm-4">
 								<label class="control-label">Cidade</label> <input type="text"
-									class="form-control" name="cidade" id="cidade" /> <input
-									type="hidden" class="form-control" name="estado" id="uf" />
+									class="form-control" name="cidade" id="cidade" readonly="readonly" /> <input
+									type="hidden" class="form-control" name="estado" id="uf" readonly="readonly"/>
 							</div>
 
 						</div>

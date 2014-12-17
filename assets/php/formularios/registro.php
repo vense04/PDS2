@@ -65,9 +65,6 @@ if (! empty ( $_POST )) {
 		
 		
 		
-		$dado = "../index.php";
-		
- 		header('Location: '.$dado); 
 		
 		
 		
